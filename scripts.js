@@ -1,4 +1,3 @@
-// Sayfa yüklendiğinde çalışacak fonksiyon
 document.addEventListener('DOMContentLoaded', () => {
     // Menü açma/kapama
     const menuButton = document.querySelector('.menu-button');
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Üst kısmındaki başlığı dinamik olarak güncelle
     const headerTitle = document.querySelector('header h1');
-    const userName = 'Nevmara'; // Kullanıcı adını buraya ekleyin
+    const userName = 'Adınız'; // Kullanıcı adını buraya ekleyin
     if (headerTitle) {
         headerTitle.textContent = `Merhaba, Ben ${userName}`;
     }
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (aboutSection) {
         const aboutContent = `
             <h2>Hakkında</h2>
-            <p>Bir takım mobil uygulamalar geliştiriyor ve yayınlıyorum.</p>
+            <p>Buraya kendinizden ve yaptığınız işlerden bahseden kısa bir yazı ekleyin.</p>
         `;
         aboutSection.innerHTML = aboutContent;
     }
@@ -57,4 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     fadeInElements.forEach(el => observer.observe(el));
+
+    // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
+    fetch('privacy-policy.md')
+        .then(response => response.text())
+        .then(text => {
+            const html = marked(text);
+            document.getElementById('privacy-content').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
+        });
 });
