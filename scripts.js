@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-    fetch('privacy-policy.md')
+    fetch('PRIVACY.md')
         .then(response => response.text())
         .then(text => {
             const html = marked(text);
