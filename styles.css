@@ -90,6 +90,23 @@ footer {
     text-decoration: underline;
 }
 
+/* Gizlilik Politikası */
+#privacy-policy {
+    padding: 20px;
+    margin: 0 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#privacy-policy h2 {
+    margin-top: 0;
+}
+
+#privacy-content {
+    line-height: 1.6;
+}
+
 /* Duyarlı Tasarım */
 @media (max-width: 768px) {
     .menu-button {
