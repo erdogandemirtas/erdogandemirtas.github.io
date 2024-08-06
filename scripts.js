@@ -1,74 +1,60 @@
-// Dinamik İçerik Yönetimi
+// Sayfa yüklendiğinde çalışacak fonksiyon
 document.addEventListener('DOMContentLoaded', () => {
-    const aboutSection = document.querySelector('#about');
-    const projectsSection = document.querySelector('#projects');
-    const contactSection = document.querySelector('#contact');
+    // Menü açma/kapama
+    const menuButton = document.querySelector('.menu-button');
+    const navMenu = document.querySelector('nav ul');
 
-    // İçeriklerin Dinamik Olarak Yüklenmesi
-    function loadContent(section, content) {
-        section.innerHTML = content;
-    }
-
-    const aboutContent = `
-        <h2>Hakkında</h2>
-        <p>Yazılım geliştirme konusunda 5 yıllık deneyime sahibim. Çeşitli projelerde çalıştım ve güçlü bir teknik bilgiye sahibim.</p>
-    `;
-    const projectsContent = `
-        <h2>Projeler</h2>
-        <ul>
-            <li><a href="#">Projelerimden Bir Tanesi</a></li>
-            <li><a href="#">Projelerimden Diğer Bir Tanesi</a></li>
-        </ul>
-    `;
-    const contactContent = `
-        <h2>İletişim</h2>
-        <p>Beni e-posta ile iletişime geçebilirsiniz: <a href="mailto:nevmara@outlook.com">nevmara@outlook.com</a></p>
-    `;
-
-    loadContent(aboutSection, aboutContent);
-    loadContent(projectsSection, projectsContent);
-    loadContent(contactSection, contactContent);
-
-    // Form Doğrulama
-    const form = document.querySelector('#contact-form');
-    if (form) {
-        form.addEventListener('submit', (event) => {
-            const name = form.querySelector('input[name="name"]').value;
-            const email = form.querySelector('input[name="email"]').value;
-            const message = form.querySelector('textarea[name="message"]').value;
-            let isValid = true;
-
-            if (name === '' || email === '' || message === '') {
-                alert('Lütfen tüm alanları doldurun.');
-                isValid = false;
-            }
-
-            if (isValid && !validateEmail(email)) {
-                alert('Geçerli bir e-posta adresi girin.');
-                isValid = false;
-            }
-
-            if (!isValid) {
-                event.preventDefault(); // Formun gönderilmesini engeller
-            }
-        });
-
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-    }
-
-    // Basit Animasyonlar
-    const animateButton = document.querySelector('button');
-    if (animateButton) {
-        animateButton.addEventListener('mouseover', () => {
-            animateButton.style.transform = 'scale(1.1)';
-            animateButton.style.transition = 'transform 0.3s';
-        });
-
-        animateButton.addEventListener('mouseout', () => {
-            animateButton.style.transform = 'scale(1)';
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
     }
+
+    // Sayfa kaydırma animasyonu
+    const scrollLinks = document.querySelectorAll('nav ul li a');
+
+    scrollLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Üst kısmındaki başlığı dinamik olarak güncelle
+    const headerTitle = document.querySelector('header h1');
+    const userName = 'Nevmara'; // Kullanıcı adını buraya ekleyin
+    if (headerTitle) {
+        headerTitle.textContent = `Merhaba, Ben ${userName}`;
+    }
+
+    // Dinamik içerik örneği
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+        const aboutContent = `
+            <h2>Hakkında</h2>
+            <p>Bir takım mobil uygulamalar geliştiriyor ve yayınlıyorum.</p>
+        `;
+        aboutSection.innerHTML = aboutContent;
+    }
+
+    // Yavaşça görünen bir içerik efekti
+    const fadeInElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    fadeInElements.forEach(el => observer.observe(el));
 });
