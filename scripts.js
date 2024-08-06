@@ -59,7 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
     fetch('PRIVACY.md')
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Markdown dosyası yüklenemedi.');
+            }
+            return response.text();
+        })
         .then(text => {
             const html = marked(text);
             document.getElementById('privacy-content').innerHTML = html;
