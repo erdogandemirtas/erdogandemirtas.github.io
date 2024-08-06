@@ -8,24 +8,34 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Header ve Menü */
 header {
     background: #333;
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    position: relative;
 }
 
 header h1 {
     margin: 0;
 }
 
+.menu-button {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 15px;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 10px;
 }
 
@@ -50,7 +60,6 @@ section h2 {
     margin-top: 0;
 }
 
-/* İletişim Bilgileri */
 footer {
     background: #333;
     color: #fff;
@@ -63,17 +72,42 @@ footer {
 
 /* Duyarlı Tasarım */
 @media (max-width: 768px) {
-    nav ul {
-        text-align: center;
+    .menu-button {
+        display: block;
     }
-    
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
     nav ul li {
         display: block;
         margin: 10px 0;
     }
+
+    section {
+        margin: 10px;
+    }
 }
 
-/* Ekstra Stil Özellikleri */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px;
+    }
+}
+
+/* Duyarlı Resimler ve Medya */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 button {
     background-color: #333;
     color: white;
