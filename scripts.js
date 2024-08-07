@@ -81,13 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const adjustFooterPosition = () => {
         const bodyHeight = document.body.offsetHeight;
         const windowHeight = window.innerHeight;
-        const footerHeight = footer.offsetHeight;
 
-        // Sayfa içeriği pencereden uzun değilse
         if (bodyHeight < windowHeight) {
+            // Sayfa içeriği pencereden kısa ise
             footer.style.position = 'fixed';
             footer.style.bottom = '0';
+            footer.style.width = '100%'; // Footer'ın genişliğini ayarla
         } else {
+            // Sayfa içeriği pencereden uzun ise
             footer.style.position = 'relative';
             footer.style.bottom = 'auto';
         }
