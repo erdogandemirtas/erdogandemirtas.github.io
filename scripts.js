@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-    fetch('PRIVACY.md')
+   fetch('PRIVACY.md')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Markdown dosyası yüklenemedi.');
@@ -66,8 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.text();
         })
         .then(text => {
-            const html = marked(text);
-            document.getElementById('PRIVACY').innerHTML = html;
+            if (typeof marked === 'function') {
+                const html = marked(text);
+                document.getElementById('PRIVACY').innerHTML = html;
+            } else {
+                throw new Error('Marked kütüphanesi işlev değil.');
+            }
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
