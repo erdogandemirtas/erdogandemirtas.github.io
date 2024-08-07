@@ -18,12 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
 
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop,
-                    behavior: 'smooth'
-                });
-            }
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
         });
     });
 
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-    const markdownUrl = 'https://erdogandemirtas.github.io/PRIVACY.md'; // Örneğin, doğrudan kök dizinden erişim
+    const markdownUrl = 'https://raw.githubusercontent.com/erdogandemirtas/erdogandemirtas.github.io/main/PRIVACY.md';
 
     fetch(markdownUrl)
         .then(response => {
@@ -71,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(text => {
             if (typeof marked === 'function') {
-                const html = marked.parse(text);
+                const html = marked.parse(text); // `parse` metodu `marked`'in yeni sürümlerinde kullanılır
                 document.getElementById('privacy-content').innerHTML = html;
             } else {
                 throw new Error('Marked kütüphanesi işlev değil.');
