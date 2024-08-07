@@ -10,7 +10,6 @@ body {
     color: #444;
     line-height: 1.6;
     background-color: #f0f0f0;
-    padding-bottom: 70px; /* Footer yüksekliği kadar padding ekleyin */
     display: flex;
     flex-direction: column;
 }
@@ -19,9 +18,10 @@ body {
 header {
     background: #222;
     color: #eee;
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
     position: relative;
+    width: 100%;
 }
 
 header h1 {
@@ -70,10 +70,12 @@ nav ul li a:hover {
 section {
     padding: 30px;
     margin: 20px auto;
-    max-width: 800px;
+    width: 100%;
+    max-width: 800px; /* Kutu genişliği sabitlenir */
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
 }
 
 section h2 {
@@ -86,7 +88,7 @@ footer {
     background: #222;
     color: #eee;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     width: 100%;
     /* Footer'ı sayfanın en altına yerleştir */
     margin-top: auto;
@@ -135,10 +137,12 @@ footer {
 #privacy-policy {
     padding: 30px;
     margin: 20px auto;
-    max-width: 800px;
+    width: 100%;
+    max-width: 800px; /* Kutu genişliği sabitlenir */
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
 }
 
 #privacy-policy h2 {
