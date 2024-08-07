@@ -1,6 +1,6 @@
 /* Genel Ayarlar */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -13,36 +13,38 @@ body {
 header {
     background: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 20px;
     text-align: center;
     position: relative;
 }
 
 header h1 {
     margin: 0;
+    font-size: 1.5em;
 }
 
 .menu-button {
     display: none;
-    font-size: 24px;
+    font-size: 1.5em;
     cursor: pointer;
-    margin: 0 15px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: 500;
 }
 
 nav ul li a:hover {
@@ -52,10 +54,10 @@ nav ul li a:hover {
 /* Ana Bölümler */
 section {
     padding: 20px;
-    margin: 20px 10px;
+    margin: 20px 15px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 section h2 {
@@ -67,12 +69,12 @@ footer {
     background: #333;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
-    position: fixed; /* Sabit footer */
+    padding: 15px 20px;
+    position: fixed;
     bottom: 0;
     width: 100%;
-    left: 0; /* Sol kenara hizala */
-    z-index: 1000; /* Footer'ın diğer içeriklerin üstünde olması için */
+    left: 0;
+    z-index: 1000;
 }
 
 .social-media {
@@ -84,8 +86,8 @@ footer {
 .social-media a {
     color: #fff;
     margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s;
 }
 
 .social-media a:hover {
@@ -96,6 +98,7 @@ footer {
 #projects ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 #projects ul li {
@@ -115,10 +118,10 @@ footer {
 /* Gizlilik Politikası */
 #privacy-policy {
     padding: 20px;
-    margin: 20px 10px;
+    margin: 20px 15px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 #privacy-policy h2 {
@@ -138,6 +141,8 @@ footer {
     nav ul {
         display: none;
         flex-direction: column;
+        width: 100%;
+        background: #333;
         padding: 0;
     }
 
@@ -146,8 +151,8 @@ footer {
     }
 
     nav ul li {
-        display: block;
         margin: 10px 0;
+        text-align: center;
     }
 
     section {
@@ -157,7 +162,7 @@ footer {
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 18px;
+        font-size: 1.2em;
     }
 }
 
@@ -170,12 +175,13 @@ img {
 /* Düğmeler */
 button {
     background-color: #333;
-    color: white;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     text-transform: uppercase;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -185,10 +191,11 @@ button:hover {
 a.button-link {
     display: inline-block;
     background-color: #333;
-    color: white;
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 a.button-link:hover {
