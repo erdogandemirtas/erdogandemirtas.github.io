@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.querySelector('.menu-button');
     const navMenu = document.querySelector('nav ul');
 
-    menuButton?.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    if (menuButton && navMenu) {
+        menuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
 
     // Sayfa kaydırma animasyonu
     document.querySelectorAll('nav ul li a').forEach(link => {
@@ -65,9 +67,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const togglePrivacyButton = document.getElementById('toggle-privacy');
     const privacyContent = document.getElementById('privacy-content');
 
-    togglePrivacyButton?.addEventListener('click', () => {
-        const isHidden = privacyContent.style.display === 'none';
-        privacyContent.style.display = isHidden ? 'block' : 'none';
-        togglePrivacyButton.textContent = isHidden ? 'Gizlilik Politikasını Gizle' : 'Gizlilik Politikasını Göster';
+    if (togglePrivacyButton && privacyContent) {
+        togglePrivacyButton.addEventListener('click', () => {
+            const isHidden = privacyContent.style.display === 'none';
+            privacyContent.style.display = isHidden ? 'block' : 'none';
+            togglePrivacyButton.textContent = isHidden ? 'Gizlilik Politikasını Gizle' : 'Gizlilik Politikasını Göster';
+        });
+    }
+
+    // Footer'ın görünürlüğünü kontrol et
+    const footer = document.querySelector('footer');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Sayfa aşağı kaydırıldığında footer'ı gizle
+            footer?.classList.add('hidden');
+        } else {
+            // Sayfa yukarı kaydırıldığında footer'ı göster
+            footer?.classList.remove('hidden');
+        }
+        lastScrollTop = scrollTop;
     });
 });
