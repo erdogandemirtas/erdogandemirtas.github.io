@@ -18,10 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
 
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-   fetch('PRIVACY.md')
+    fetch('PRIVACY.md')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Markdown dosyası yüklenemedi.');
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(text => {
             if (typeof marked === 'function') {
                 const html = marked(text);
-                document.getElementById('PRIVACY').innerHTML = html;
+                document.getElementById('privacy-content').innerHTML = html;
             } else {
                 throw new Error('Marked kütüphanesi işlev değil.');
             }
