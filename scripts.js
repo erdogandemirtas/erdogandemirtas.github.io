@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-    const markdownUrl = 'https://raw.githubusercontent.com/erdogandemirtas/erdogandemirtas.github.io/main/PRIVACY.md'; // Buraya tam URL'yi ekleyin
+    const markdownUrl = 'https://erdogandemirtas.github.io/PRIVACY.md'; // Örneğin, doğrudan kök dizinden erişim
 
     fetch(markdownUrl)
         .then(response => {
