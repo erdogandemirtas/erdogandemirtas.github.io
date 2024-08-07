@@ -81,10 +81,16 @@ footer {
     color: #eee;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     left: 0;
+    /* Görünürlük geçişi */
+    transition: transform 0.3s ease;
+}
+
+footer.hidden {
+    transform: translateY(100%);
 }
 
 .social-media {
