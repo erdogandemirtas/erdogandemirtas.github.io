@@ -48,9 +48,10 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Ana Bölümler */
 section {
     padding: 20px;
-    margin: 0 10px;
+    margin: 20px 10px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -93,7 +94,7 @@ footer {
 /* Gizlilik Politikası */
 #privacy-policy {
     padding: 20px;
-    margin: 0 10px;
+    margin: 20px 10px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -145,6 +146,7 @@ img {
     height: auto;
 }
 
+/* Düğmeler */
 button {
     background-color: #333;
     color: white;
