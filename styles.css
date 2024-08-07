@@ -15,6 +15,11 @@ body {
     min-height: 100vh; /* Sayfanın yüksekliği ekran yüksekliği kadar olsun */
 }
 
+/* Ana İçerik */
+main {
+    flex: 1; /* Ana içeriğin alanı kaplamasına izin verir */
+}
+
 /* Header ve Menü */
 header {
     background: #222;
@@ -68,10 +73,6 @@ nav ul li a:hover {
 }
 
 /* Ana Bölümler */
-main {
-    flex: 1; /* Ana içeriğin alanı kaplamasına izin verir */
-}
-
 section {
     padding: 30px;
     margin: 20px auto;
@@ -91,6 +92,8 @@ footer {
     padding: 20px;
     width: 100%;
     box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
+    /* Footer'ı sayfanın en altında tutmak için */
+    position: relative;
 }
 
 /* Sosyal Medya */
