@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Üst kısmındaki başlığı dinamik olarak güncelle
     const headerTitle = document.querySelector('header h1');
-    const userName = 'Nevmara'; // Kullanıcı adını buraya ekleyin
+    const userName = 'Adınız'; // Kullanıcı adını buraya ekleyin
     if (headerTitle) {
         headerTitle.textContent = `Merhaba, Ben ${userName}`;
     }
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (aboutSection) {
         const aboutContent = `
             <h2>Hakkında</h2>
-            <p>Nevmara, bir dizi minimalist uygulama tasarlar ve geliştirir.</p>
+            <p>Buraya kendinizden ve yaptığınız işlerden bahseden kısa bir yazı ekleyin.</p>
         `;
         aboutSection.innerHTML = aboutContent;
     }
@@ -60,7 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-    fetch('PRIVACY.md')
+    const markdownUrl = 'https://github.com/erdogandemirtas/erdogandemirtas.github.io/blob/main/PRIVACY.md'; // Buraya tam URL'yi ekleyin
+
+    fetch(markdownUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Markdown dosyası yüklenemedi.');
