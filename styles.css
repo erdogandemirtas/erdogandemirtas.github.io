@@ -90,10 +90,13 @@ footer {
     text-align: center;
     padding: 20px;
     width: 100%;
-    /* Footer'ı sayfanın en altına yerleştir */
-    margin-top: auto;
+    position: fixed; /* Footer'ı ekranın altına sabitler */
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
 }
 
+/* Sosyal Medya */
 .social-media {
     display: flex;
     justify-content: center;
