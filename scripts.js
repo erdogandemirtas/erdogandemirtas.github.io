@@ -66,10 +66,28 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.text();
         })
         .then(text => {
-            const html = marked.parse(text); // `parse` metodu `marked`'in yeni sürümlerinde kullanılır
-            document.getElementById('privacy-content').innerHTML = html;
+            {
+                const html = marked.parse(text); // `parse` metodu `marked`'in yeni sürümlerinde kullanılır
+                document.getElementById('privacy-content').innerHTML = html;
+            }
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
         });
+
+    // Gizlilik Politikası Bölümünü Göster/Gizle
+    const togglePrivacyButton = document.getElementById('toggle-privacy');
+    const privacyContent = document.getElementById('privacy-content');
+
+    if (togglePrivacyButton) {
+        togglePrivacyButton.addEventListener('click', () => {
+            if (privacyContent.style.display === 'none') {
+                privacyContent.style.display = 'block';
+                togglePrivacyButton.textContent = 'Gizlilik Politikasını Gizle';
+            } else {
+                privacyContent.style.display = 'none';
+                togglePrivacyButton.textContent = 'Gizlilik Politikasını Göster';
+            }
+        });
+    }
 });
