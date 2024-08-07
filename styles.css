@@ -1,12 +1,18 @@
 /* Genel Ayarlar */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #444;
     line-height: 1.6;
     background-color: #f0f0f0;
     padding-bottom: 70px; /* Footer yüksekliği kadar padding ekleyin */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header ve Menü */
@@ -81,16 +87,9 @@ footer {
     color: #eee;
     text-align: center;
     padding: 20px 0;
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    left: 0;
-    /* Görünürlük geçişi */
-    transition: transform 0.3s ease;
-}
-
-footer.hidden {
-    transform: translateY(100%);
+    /* Footer'ı sayfanın en altına yerleştir */
+    margin-top: auto;
 }
 
 .social-media {
