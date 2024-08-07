@@ -3,43 +3,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.querySelector('.menu-button');
     const navMenu = document.querySelector('nav ul');
 
-    if (menuButton) {
-        menuButton.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    }
+    menuButton?.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
 
     // Sayfa kaydırma animasyonu
-    const scrollLinks = document.querySelectorAll('nav ul li a');
-
-    scrollLinks.forEach(link => {
+    document.querySelectorAll('nav ul li a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+            const targetElement = document.querySelector(link.getAttribute('href'));
 
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth'
-            });
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
     // Üst kısmındaki başlığı dinamik olarak güncelle
     const headerTitle = document.querySelector('header h1');
-    const userName = 'Nevmara'; // Kullanıcı adını buraya ekleyin
     if (headerTitle) {
-        headerTitle.textContent = `${userName}`;
+        headerTitle.textContent = 'Nevmara';
     }
 
     // Dinamik içerik örneği
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
-        const aboutContent = `
+        aboutSection.innerHTML = `
             <h2>Hakkında</h2>
             <p>Nevmara, bir dizi minimalist uygulama tasarlar ve geliştirir.</p>
         `;
-        aboutSection.innerHTML = aboutContent;
     }
 
     // Yavaşça görünen bir içerik efekti
@@ -47,11 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
+            entry.target.classList.toggle('visible', entry.isIntersecting);
         });
     }, { threshold: 0.1 });
 
@@ -60,16 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
     fetch('PRIVACY.md')
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Markdown dosyası yüklenemedi.');
-            }
+            if (!response.ok) throw new Error('Markdown dosyası yüklenemedi.');
             return response.text();
         })
         .then(text => {
-            {
-                const html = marked.parse(text); // `parse` metodu `marked`'in yeni sürümlerinde kullanılır
-                document.getElementById('privacy-content').innerHTML = html;
-            }
+            document.getElementById('privacy-content').innerHTML = marked.parse(text);
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
@@ -79,15 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const togglePrivacyButton = document.getElementById('toggle-privacy');
     const privacyContent = document.getElementById('privacy-content');
 
-    if (togglePrivacyButton) {
-        togglePrivacyButton.addEventListener('click', () => {
-            if (privacyContent.style.display === 'none') {
-                privacyContent.style.display = 'block';
-                togglePrivacyButton.textContent = 'Gizlilik Politikasını Gizle';
-            } else {
-                privacyContent.style.display = 'none';
-                togglePrivacyButton.textContent = 'Gizlilik Politikasını Göster';
-            }
-        });
-    }
+    togglePrivacyButton?.addEventListener('click', () => {
+        const isHidden = privacyContent.style.display === 'none';
+        privacyContent.style.display = isHidden ? 'block' : 'none';
+        togglePrivacyButton.textContent = isHidden ? 'Gizlilik Politikasını Gizle' : 'Gizlilik Politikasını Göster';
+    });
 });
