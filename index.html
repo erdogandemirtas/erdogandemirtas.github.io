@@ -51,6 +51,25 @@
         <p>&copy; 2024 Nevmara. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const markdownUrl = 'https://raw.githubusercontent.com/erdogandemirtas/erdogandemirtas.github.io/main/PRIVACY.md';
+
+            fetch(markdownUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Markdown dosyası yüklenemedi.');
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    const html = marked.parse(text); // Kullanıcıların daha yeni `marked` versiyonları `parse` kullanır
+                    document.getElementById('privacy-content').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
+                });
+        });
+    </script>
 </body>
 </html>
