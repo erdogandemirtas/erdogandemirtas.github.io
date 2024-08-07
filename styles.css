@@ -75,6 +75,23 @@ footer {
     z-index: 1000; /* Footer'ın diğer içeriklerin üstünde olması için */
 }
 
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #ddd;
+}
+
 /* Projeler Listesi */
 #projects ul {
     list-style: none;
