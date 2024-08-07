@@ -62,11 +62,9 @@
                     return response.text();
                 })
                 .then(text => {
-                    if (typeof marked === 'function') {
+                    {
                         const html = marked.parse(text);
                         document.getElementById('privacy-content').innerHTML = html;
-                    } else {
-                        throw new Error('Marked kütüphanesi işlev değil.');
                     }
                 })
                 .catch(error => {
