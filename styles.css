@@ -1,32 +1,39 @@
 /* Genel Ayarlar */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #444;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    padding-bottom: 60px; /* Footer yüksekliği kadar padding ekleyin */
+    background-color: #f0f0f0;
+    padding-bottom: 70px; /* Footer yüksekliği kadar padding ekleyin */
 }
 
 /* Header ve Menü */
 header {
-    background: #333;
-    color: #fff;
-    padding: 15px 20px;
+    background: #222;
+    color: #eee;
+    padding: 20px 0;
     text-align: center;
     position: relative;
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 2em;
+    letter-spacing: 1px;
 }
 
 .menu-button {
     display: none;
-    font-size: 1.5em;
+    font-size: 2em;
+    color: #eee;
+    background: none;
+    border: none;
     cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 nav ul {
@@ -35,46 +42,49 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #eee;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #f8f8f8;
 }
 
 /* Ana Bölümler */
 section {
-    padding: 20px;
-    margin: 20px 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 section h2 {
     margin-top: 0;
+    font-size: 1.8em;
 }
 
 /* Footer */
 footer {
-    background: #333;
-    color: #fff;
+    background: #222;
+    color: #eee;
     text-align: center;
-    padding: 15px 20px;
+    padding: 20px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
     left: 0;
-    z-index: 1000;
 }
 
 .social-media {
@@ -84,14 +94,14 @@ footer {
 }
 
 .social-media a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 1.5em;
+    color: #eee;
+    margin: 0 15px;
+    font-size: 1.8em;
     transition: color 0.3s;
 }
 
 .social-media a:hover {
-    color: #ddd;
+    color: #f8f8f8;
 }
 
 /* Projeler Listesi */
@@ -102,34 +112,37 @@ footer {
 }
 
 #projects ul li {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 #projects ul li a {
-    color: #333;
+    color: #222;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    transition: color 0.3s;
 }
 
 #projects ul li a:hover {
-    text-decoration: underline;
+    color: #444;
 }
 
 /* Gizlilik Politikası */
 #privacy-policy {
-    padding: 20px;
-    margin: 20px 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 #privacy-policy h2 {
     margin-top: 0;
+    font-size: 1.8em;
 }
 
 #privacy-content {
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 /* Duyarlı Tasarım */
@@ -142,8 +155,11 @@ footer {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: #333;
+        background: #222;
         padding: 0;
+        position: absolute;
+        top: 60px;
+        right: 0;
     }
 
     nav ul.active {
@@ -151,7 +167,7 @@ footer {
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 15px 0;
         text-align: center;
     }
 
@@ -162,7 +178,7 @@ footer {
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 }
 
@@ -174,13 +190,13 @@ img {
 
 /* Düğmeler */
 button {
-    background-color: #333;
+    background-color: #444;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s;
 }
 
@@ -190,11 +206,11 @@ button:hover {
 
 a.button-link {
     display: inline-block;
-    background-color: #333;
+    background-color: #444;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s;
 }
 
