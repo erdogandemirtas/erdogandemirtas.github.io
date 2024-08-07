@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (aboutSection) {
         const aboutContent = `
             <h2>Hakkında</h2>
-            <p>Buraya kendinizden ve yaptığınız işlerden bahseden kısa bir yazı ekleyin.</p>
+            <p>Nevmara, bir dizi minimalist uygulama tasarlar ve geliştirir.</p>
         `;
         aboutSection.innerHTML = aboutContent;
     }
