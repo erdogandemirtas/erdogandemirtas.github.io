@@ -28,6 +28,7 @@ header {
     text-align: center;
     position: relative;
     width: 100%;
+    box-sizing: border-box;
 }
 
 header h1 {
@@ -44,11 +45,11 @@ header h1 {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 20px;
+    right: 20px;
 }
 
+/* Menü */
 nav ul {
     list-style: none;
     padding: 0;
@@ -163,6 +164,10 @@ footer {
 @media (max-width: 768px) {
     .menu-button {
         display: block;
+        /* Butonu header'ın ortasına yerleştirmek için */
+        top: 20px; /* Üstten mesafe */
+        left: 50%; /* Header'ın ortası */
+        transform: translateX(-50%); /* Ortalamak için */
     }
 
     nav ul {
