@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Üst kısmındaki başlığı dinamik olarak güncelle
     const headerTitle = document.querySelector('header h1');
-    const userName = 'Adınız'; // Kullanıcı adını buraya ekleyin
+    const userName = 'Nevmara'; // Kullanıcı adını buraya ekleyin
     if (headerTitle) {
         headerTitle.textContent = `Merhaba, Ben ${userName}`;
     }
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (aboutSection) {
         const aboutContent = `
             <h2>Hakkında</h2>
-            <p>Buraya kendinizden ve yaptığınız işlerden bahseden kısa bir yazı ekleyin.</p>
+            <p>Nevmara, bir dizi minimalist uygulama tasarlar ve geliştirir.</p>
         `;
         aboutSection.innerHTML = aboutContent;
     }
