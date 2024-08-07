@@ -29,6 +29,10 @@ header {
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Başlık ile buton arasında boşluk */
 }
 
 header h1 {
@@ -45,8 +49,8 @@ header h1 {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 20px; /* Üstten mesafe */
-    right: 20px; /* Sağdan mesafe */
+    top: 20px;
+    right: 20px;
     z-index: 10; /* Butonun header'ın üstünde görünmesini sağlar */
 }
 
@@ -165,7 +169,7 @@ footer {
 @media (max-width: 768px) {
     .menu-button {
         display: block;
-        /* Butonu header'ın ortasında hizalamak için */
+        /* Butonu header'ın üstünde ortalamak için */
         top: 20px; /* Üstten mesafe */
         right: 20px; /* Sağdan mesafe */
         transform: none; /* Mobil görünümde transform'u kaldır */
