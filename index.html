@@ -51,6 +51,28 @@
         <p>&copy; 2024 Nevmara. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
+            fetch('PRIVACY.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Markdown dosyası yüklenemedi.');
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    if (typeof marked === 'function') {
+                        const html = marked.parse(text);
+                        document.getElementById('privacy-content').innerHTML = html;
+                    } else {
+                        throw new Error('Marked kütüphanesi işlev değil.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
+                });
+        });
+    </script>
 </body>
 </html>
