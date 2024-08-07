@@ -56,4 +56,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     fadeInElements.forEach(el => observer.observe(el));
+
+    // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
+    fetch('PRIVACY.md')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Markdown dosyası yüklenemedi.');
+            }
+            return response.text();
+        })
+        .then(text => {
+            {
+                const html = marked.parse(text); // `parse` metodu `marked`'in yeni sürümlerinde kullanılır
+                document.getElementById('privacy-content').innerHTML = html;
+            }
+        })
+        .catch(error => {
+            console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
+        });
 });
