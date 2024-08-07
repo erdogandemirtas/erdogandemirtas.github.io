@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const footer = document.querySelector('footer');
 
     const adjustFooterPosition = () => {
-        const bodyHeight = document.body.offsetHeight;
+        const bodyHeight = document.body.scrollHeight;
         const windowHeight = window.innerHeight;
 
         if (bodyHeight < windowHeight) {
