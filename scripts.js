@@ -56,26 +56,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     fadeInElements.forEach(el => observer.observe(el));
-
-    // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-    const markdownUrl = 'https://raw.githubusercontent.com/erdogandemirtas/erdogandemirtas.github.io/main/PRIVACY.md';
-
-    fetch(markdownUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Markdown dosyası yüklenemedi.');
-            }
-            return response.text();
-        })
-        .then(text => {
-            if (typeof marked === 'function') {
-                const html = marked.parse(text); // `parse` metodu `marked`'in yeni sürümlerinde kullanılır
-                document.getElementById('privacy-content').innerHTML = html;
-            } else {
-                throw new Error('Marked kütüphanesi işlev değil.');
-            }
-        })
-        .catch(error => {
-            console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
-        });
 });
