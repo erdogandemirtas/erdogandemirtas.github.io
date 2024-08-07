@@ -75,20 +75,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Footer'ın görünürlüğünü kontrol et
+    // Footer'ın doğru konumda kalmasını sağla
     const footer = document.querySelector('footer');
-    let lastScrollTop = 0;
 
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const adjustFooterPosition = () => {
+        const bodyHeight = document.body.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const footerHeight = footer.offsetHeight;
 
-        if (scrollTop > lastScrollTop) {
-            // Sayfa aşağı kaydırıldığında footer'ı gizle
-            footer?.classList.add('hidden');
+        // Sayfa içeriği pencereden uzun değilse
+        if (bodyHeight < windowHeight) {
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
         } else {
-            // Sayfa yukarı kaydırıldığında footer'ı göster
-            footer?.classList.remove('hidden');
+            footer.style.position = 'relative';
+            footer.style.bottom = 'auto';
         }
-        lastScrollTop = scrollTop;
-    });
+    };
+
+    // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde footer konumunu güncelle
+    window.addEventListener('resize', adjustFooterPosition);
+    adjustFooterPosition();
 });
