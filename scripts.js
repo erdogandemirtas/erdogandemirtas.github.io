@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Üst kısmındaki başlığı dinamik olarak güncelle
     const headerTitle = document.querySelector('header h1');
-    const userName = 'Adınız'; // Kullanıcı adını buraya ekleyin
+    const userName = 'Nevmara'; // Kullanıcı adını buraya ekleyin
     if (headerTitle) {
         headerTitle.textContent = `Merhaba, Ben ${userName}`;
     }
