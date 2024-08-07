@@ -45,8 +45,9 @@ header h1 {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 20px; /* Üstten mesafe */
+    right: 20px; /* Sağdan mesafe */
+    z-index: 10; /* Butonun header'ın üstünde görünmesini sağlar */
 }
 
 /* Menü */
@@ -164,10 +165,10 @@ footer {
 @media (max-width: 768px) {
     .menu-button {
         display: block;
-        /* Butonu header'ın ortasına yerleştirmek için */
+        /* Butonu header'ın ortasında hizalamak için */
         top: 20px; /* Üstten mesafe */
-        left: 50%; /* Header'ın ortası */
-        transform: translateX(-50%); /* Ortalamak için */
+        right: 20px; /* Sağdan mesafe */
+        transform: none; /* Mobil görünümde transform'u kaldır */
     }
 
     nav ul {
@@ -177,7 +178,7 @@ footer {
         background: #222;
         padding: 0;
         position: absolute;
-        top: 60px;
+        top: 60px; /* Menü kutusunun yüksekliği */
         left: 0; /* Menü kutusunu tam genişlikte ayarla */
     }
 
