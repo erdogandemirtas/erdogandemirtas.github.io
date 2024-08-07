@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(text => {
             const html = marked(text);
-            document.getElementById('privacy-content').innerHTML = html;
+            document.getElementById('PRIVACY').innerHTML = html;
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
