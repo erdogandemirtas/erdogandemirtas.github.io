@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(text => {
             if (typeof marked === 'function') {
-                const html = marked(text);
+                const html = marked.parse(text);
                 document.getElementById('privacy-content').innerHTML = html;
             } else {
                 throw new Error('Marked kütüphanesi işlev değil.');
