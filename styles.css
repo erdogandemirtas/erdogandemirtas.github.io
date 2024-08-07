@@ -12,6 +12,7 @@ body {
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Sayfanın yüksekliği ekran yüksekliği kadar olsun */
 }
 
 /* Header ve Menü */
@@ -78,11 +79,6 @@ section {
     box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
 }
 
-section h2 {
-    margin-top: 0;
-    font-size: 1.8em;
-}
-
 /* Footer */
 footer {
     background: #222;
@@ -90,9 +86,8 @@ footer {
     text-align: center;
     padding: 20px;
     width: 100%;
-    position: fixed; /* Footer'ı ekranın altına sabitler */
-    bottom: 0;
-    left: 0;
+    /* Footer'ı sayfanın en altına yerleştir */
+    margin-top: auto;
     box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
 }
 
