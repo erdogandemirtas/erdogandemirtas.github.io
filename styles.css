@@ -68,6 +68,10 @@ nav ul li a:hover {
 }
 
 /* Ana Bölümler */
+main {
+    flex: 1; /* Ana içeriğin alanı kaplamasına izin verir */
+}
+
 section {
     padding: 30px;
     margin: 20px auto;
@@ -86,8 +90,6 @@ footer {
     text-align: center;
     padding: 20px;
     width: 100%;
-    /* Footer'ı sayfanın en altına yerleştir */
-    margin-top: auto;
     box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
 }
 
