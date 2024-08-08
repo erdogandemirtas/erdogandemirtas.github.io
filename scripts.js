@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuButton && navMenu) {
         menuButton.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            const expanded = navMenu.classList.contains('active');
+            menuButton.setAttribute('aria-expanded', expanded);
         });
     }
 
@@ -16,10 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(link.getAttribute('href'));
 
             if (targetElement) {
+                link.classList.add('disabled'); // Linki devre dışı bırak
                 window.scrollTo({
                     top: targetElement.offsetTop,
                     behavior: 'smooth'
                 });
+
+                setTimeout(() => {
+                    link.classList.remove('disabled'); // Linki tekrar etkinleştir
+                }, 1000); // Kaydırma animasyon süresi
             }
         });
     });
@@ -58,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(text => {
             document.getElementById('privacy-content').innerHTML = marked.parse(text);
+            privacyContent.style.display = 'none'; // Başlangıçta gizli yap
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
