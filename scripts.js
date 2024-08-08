@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         togglePrivacyButton.addEventListener('click', () => {
             const isHidden = privacyContent.style.display === 'none';
             privacyContent.style.display = isHidden ? 'block' : 'none';
+            privacyContent.classList.toggle('fade-in', isHidden); // fade-in sınıfını ekle veya kaldır
             togglePrivacyButton.textContent = isHidden ? 'Gizlilik Politikasını Gizle' : 'Gizlilik Politikasını Göster';
         });
     }
