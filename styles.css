@@ -3,9 +3,9 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #444;
-    background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #fafafa;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -23,25 +23,25 @@ main {
 
 /* Header ve Menü */
 header {
-    background: #333;
-    color: #fff;
-    padding: 15px 20px;
+    background: #fff;
+    color: #333;
+    padding: 10px 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #eaeaea;
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 .menu-button {
     display: none;
     font-size: 1.5em;
-    color: #fff;
+    color: #333;
     background: none;
     border: none;
     cursor: pointer;
@@ -56,18 +56,18 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ddd;
+    color: #007acc;
 }
 
 /* Ana Bölümler */
@@ -77,18 +77,19 @@ section {
     max-width: 800px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin: 20px 0;
 }
 
 /* Footer */
 footer {
-    background: #333;
-    color: #fff;
+    background: #fff;
+    color: #333;
     text-align: center;
-    padding: 15px;
+    padding: 10px 20px;
     width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #eaeaea;
 }
 
 /* Sosyal Medya */
@@ -99,14 +100,14 @@ footer {
 }
 
 .social-media a {
-    color: #fff;
+    color: #333;
     margin: 0 10px;
     font-size: 1.5em;
     transition: color 0.3s;
 }
 
 .social-media a:hover {
-    color: #ddd;
+    color: #007acc;
 }
 
 /* Projeler Listesi */
@@ -128,7 +129,7 @@ footer {
 }
 
 #projects ul li a:hover {
-    color: #555;
+    color: #007acc;
 }
 
 /* Gizlilik Politikası */
@@ -138,7 +139,8 @@ footer {
     max-width: 800px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin: 20px 0;
 }
 
@@ -161,11 +163,12 @@ footer {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: #333;
+        background: #fff;
         padding: 10px 0;
         position: absolute;
         top: 50px;
         left: 0;
+        border-top: 1px solid #eaeaea;
     }
 
     nav ul.active {
@@ -189,7 +192,7 @@ footer {
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 }
 
@@ -201,7 +204,7 @@ img {
 
 /* Düğmeler */
 button, a.button-link {
-    background-color: #333;
+    background-color: #007acc;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -215,5 +218,5 @@ button, a.button-link {
 }
 
 button:hover, a.button-link:hover {
-    background-color: #555;
+    background-color: #005f99;
 }
