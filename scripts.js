@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(text => {
             document.getElementById('privacy-content').innerHTML = marked.parse(text);
-            privacyContent.style.display = 'none'; // Başlangıçta gizli yap
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
@@ -77,10 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (togglePrivacyButton && privacyContent) {
         togglePrivacyButton.addEventListener('click', () => {
-            const isHidden = privacyContent.classList.contains('fade-in');
-            privacyContent.classList.toggle('fade-in', !isHidden); // fade-in sınıfını ekle veya kaldır
-            privacyContent.classList.toggle('visible', !isHidden); // visible sınıfını ekle veya kaldır
-            togglePrivacyButton.textContent = isHidden ? 'Gizlilik Politikasını Gizle' : 'Gizlilik Politikasını Göster';
+            const isVisible = privacyContent.classList.contains('visible');
+            privacyContent.classList.toggle('visible', !isVisible);
+            togglePrivacyButton.textContent = isVisible ? 'Gizlilik Politikasını Göster' : 'Gizlilik Politikasını Gizle';
         });
     }
 
