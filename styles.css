@@ -182,13 +182,11 @@ footer {
 /* Fade-in Animasyonu */
 .fade-in {
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-out, visibility 0.3s ease-out; /* İki özelliği de geçişe dahil ettik */
+    transition: opacity 0.3s ease-out;
 }
 
 .fade-in.visible {
     opacity: 1;
-    visibility: visible;
 }
 
 /* Duyarlı Tasarım */
