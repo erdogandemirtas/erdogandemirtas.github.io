@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Yavaşça görünen bir içerik efekti
+    // Fade-in efekti için IntersectionObserver
     const fadeInElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -19,10 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.text();
         })
         .then(text => {
-            document.getElementById('privacy-content').innerHTML = marked.parse(text);
-            // İçeriği başlangıçta gizle
             const privacyContent = document.getElementById('privacy-content');
-            privacyContent.style.display = 'none'; 
+            privacyContent.innerHTML = marked.parse(text);
+            privacyContent.style.display = 'none'; // Başlangıçta gizli yap
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
@@ -35,11 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         togglePrivacyButton.addEventListener('click', () => {
             const isHidden = privacyContent.style.display === 'none';
             privacyContent.style.display = isHidden ? 'block' : 'none';
-            // İçeriği görünür yap
-            if (!isHidden) {
-                privacyContent.classList.add('fade-in');
-            }
             togglePrivacyButton.textContent = isHidden ? 'Hide Privacy Policy' : 'Show Privacy Policy';
+            
+            // Fade-in efektini yeniden uygulama
+            if (isHidden) {
+                privacyContent.classList.add('fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        } else {
+                            entry.target.classList.remove('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(privacyContent);
+            }
         });
     }
 
