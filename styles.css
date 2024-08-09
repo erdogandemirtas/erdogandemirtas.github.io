@@ -31,7 +31,7 @@ header {
     padding: 10px 30px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Sol ve sağ elemanları hizalamak için */
     align-items: center;
     border-bottom: 1px solid #e0e0e5;
     transition: all 0.3s ease;
@@ -50,20 +50,21 @@ header h1 {
 /* Dil Seçici */
 .language-selector {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
+    align-items: center;
 }
 
 .language-option {
-    margin: 0 10px;
-    font-size: 1em;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+}
+
+.language-option img {
+    width: 32px;
+    height: 20px;
 }
 
 .language-option:hover {
-    color: #0070c9;
+    transform: scale(1.1);
 }
 
 /* Menü */
@@ -179,9 +180,13 @@ footer {
 
 /* Duyarlı Tasarım */
 @media (max-width: 768px) {
-    /* Menü düğmesini gösterme kısmını güncelleyin */
     header {
         flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .language-selector {
+        margin-top: 10px;
     }
 
     section {
