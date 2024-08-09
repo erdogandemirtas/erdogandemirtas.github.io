@@ -1,48 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Dil parametresini 'en' olarak ayarlayın
-    const lang = 'en'; // Sayfanın sadece İngilizce olmasını sağla
-
-    const translations = {
-        en: {
-            title: 'Nevmara',
-            about: 'About',
-            aboutText: 'Nevmara designs and develops a range of minimalist applications.',
-            projects: 'Projects',
-            projectsLink: 'Nevmara',
-            contact: 'Contact',
-            contactText: 'nevmara@outlook.com',
-            privacyPolicy: 'Privacy Policy',
-            showPrivacy: 'Show Privacy Policy',
-            hidePrivacy: 'Hide Privacy Policy'
-        },
-        tr: {
-            title: 'Nevmara',
-            about: 'Hakkında',
-            aboutText: 'Nevmara, bir dizi minimalist uygulama tasarlar ve geliştirir.',
-            projects: 'Projeler',
-            projectsLink: 'Nevmara',
-            contact: 'İletişim',
-            contactText: 'nevmara@outlook.com',
-            privacyPolicy: 'Gizlilik Politikası',
-            showPrivacy: 'Gizlilik Politikasını Göster',
-            hidePrivacy: 'Gizlilik Politikasını Gizle'
-        }
-    };
-
+    // Başlık ve diğer metinleri güncelle
     function applyTranslations() {
-        document.getElementById('page-title').textContent = translations[lang].title;
-        document.getElementById('header-title').textContent = translations[lang].title;
-        document.getElementById('about-title').textContent = translations[lang].about;
-        document.getElementById('about-text').textContent = translations[lang].aboutText;
-        document.getElementById('projects-title').textContent = translations[lang].projects;
-        document.getElementById('projects-link').textContent = translations[lang].projectsLink;
-        document.getElementById('contact-title').textContent = translations[lang].contact;
-        document.getElementById('contact-text').textContent = translations[lang].contactText;
-        document.getElementById('privacy-policy-title').textContent = translations[lang].privacyPolicy;
-
+        document.getElementById('page-title').textContent = 'Nevmara';
+        document.getElementById('header-title').textContent = 'Nevmara';
+        document.getElementById('about-title').textContent = 'About';
+        document.getElementById('about-text').textContent = 'Nevmara designs and develops a series of minimalist applications.';
+        document.getElementById('projects-title').textContent = 'Projects';
+        document.getElementById('projects-link').textContent = 'Nevmara';
+        document.getElementById('contact-title').textContent = 'Contact';
+        document.getElementById('contact-text').textContent = 'nevmara@outlook.com';
+        document.getElementById('privacy-policy-title').textContent = 'Privacy Policy';
+        
         const togglePrivacyButton = document.getElementById('toggle-privacy');
         if (togglePrivacyButton) {
-            togglePrivacyButton.textContent = translations[lang].showPrivacy;
+            togglePrivacyButton.textContent = 'Show Privacy Policy';
         }
     }
 
@@ -78,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         togglePrivacyButton.addEventListener('click', () => {
             const isHidden = privacyContent.style.display === 'none';
             privacyContent.style.display = isHidden ? 'block' : 'none';
-            togglePrivacyButton.textContent = isHidden ? translations[lang].hidePrivacy : translations[lang].showPrivacy;
+            togglePrivacyButton.textContent = isHidden ? 'Hide Privacy Policy' : 'Show Privacy Policy';
         });
     }
 
