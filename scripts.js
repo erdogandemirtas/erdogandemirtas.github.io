@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const lang = urlParams.get('lang') || 'tr'; // Varsayılan dil: Türkçe
+    // Dil parametresini 'en' olarak ayarlayın
+    const lang = 'en'; // Sayfanın sadece İngilizce olmasını sağla
 
     const translations = {
         en: {
