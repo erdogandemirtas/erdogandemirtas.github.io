@@ -1,24 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Başlık ve diğer metinleri güncelle
-    function applyTranslations() {
-        document.getElementById('page-title').textContent = 'Nevmara';
-        document.getElementById('header-title').textContent = 'Nevmara';
-        document.getElementById('about-title').textContent = 'About';
-        document.getElementById('about-text').textContent = 'Nevmara designs and develops a portfolio of minimalist apps.';
-        document.getElementById('projects-title').textContent = 'Projects';
-        document.getElementById('projects-link').textContent = 'Nevmara';
-        document.getElementById('contact-title').textContent = 'Contact';
-        document.getElementById('contact-text').textContent = 'nevmara@outlook.com';
-        document.getElementById('privacy-policy-title').textContent = 'Privacy Policy';
-        
-        const togglePrivacyButton = document.getElementById('toggle-privacy');
-        if (togglePrivacyButton) {
-            togglePrivacyButton.textContent = 'Show Privacy Policy';
-        }
-    }
-
-    applyTranslations();
-
     // Yavaşça görünen bir içerik efekti
     const fadeInElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
