@@ -55,16 +55,14 @@ header h1 {
 
 .language-option {
     margin: 0 5px;
-    transition: transform 0.3s ease;
+    display: inline-block;
 }
 
 .language-option img {
     width: 32px;
-    height: 20px;
-}
-
-.language-option:hover {
-    transform: scale(1.1);
+    height: auto;
+    display: block;
+    border: none;
 }
 
 /* Menü */
