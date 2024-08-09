@@ -47,24 +47,6 @@ header h1 {
     transition: font-size 0.3s ease;
 }
 
-/* Dil Seçici */
-.language-selector {
-    display: flex;
-    align-items: center;
-}
-
-.language-option {
-    margin: 0 5px;
-    display: inline-block;
-}
-
-.language-option img {
-    width: 32px;
-    height: auto;
-    display: block;
-    border: none;
-}
-
 /* Menü */
 nav {
     display: none; /* Menü görünümünü gizleyin */
@@ -181,10 +163,6 @@ footer {
     header {
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    .language-selector {
-        margin-top: 10px;
     }
 
     section {
