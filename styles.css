@@ -153,6 +153,14 @@ footer {
     opacity: 1;
 }
 
+/* Mobil Duyarlı Tasarım */
+@media (max-width: 768px) {
+    .fade-in {
+        /* Mobil görünümde opacity 1 yapmayı deneyelim */
+        opacity: 1 !important;
+    }
+}
+
 /* Duyarlı Tasarım */
 @media (max-width: 768px) {
     header {
