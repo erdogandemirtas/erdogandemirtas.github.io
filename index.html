@@ -6,12 +6,12 @@
     <meta name="description" content="Uygulama ve yazılım projeleri hakkında bilgi edinmek için buraya tıklayın.">
     <meta name="keywords" content="minimalist, uygulama geliştirme, yazılım, tasarım, Nevmara">
     <meta name="author" content="Nevmara">
-    <title>Nevmara</title>
+    <title id="page-title">Nevmara</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
-    
+
     <!-- Open Graph meta etiketleri -->
     <meta property="og:title" content="Nevmara">
     <meta property="og:description" content="Uygulama ve yazılım projeleri hakkında bilgi edinmek için buraya tıklayın.">
@@ -22,30 +22,34 @@
 </head>
 <body>
     <header>
-        <h1>Nevmara</h1>
+        <h1 id="header-title">Nevmara</h1>
+        <div class="language-selector">
+            <a href="?lang=en" class="language-option" id="en">English</a>
+            <a href="?lang=tr" class="language-option" id="tr">Türkçe</a>
+        </div>
     </header>
 
     <main>
         <section id="about" class="fade-in">
-            <h2>Hakkında</h2>
-            <p>Nevmara, bir dizi minimalist uygulama tasarlar ve geliştirir.</p>
+            <h2 id="about-title">Hakkında</h2>
+            <p id="about-text">Nevmara, bir dizi minimalist uygulama tasarlar ve geliştirir.</p>
         </section>
 
         <section id="projects" class="fade-in">
-            <h2>Projeler</h2>
-            <ul>
-                <li><a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer">Nevmara</a></li>
+            <h2 id="projects-title">Projeler</h2>
+            <ul id="projects-list">
+                <li><a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" id="projects-link">Nevmara</a></li>
                 <!-- Diğer projeleri buraya ekleyin -->
             </ul>
         </section>
 
         <section id="contact" class="fade-in">
-            <h2>İletişim</h2>
-            <p><a href="mailto:nevmara@outlook.com">nevmara@outlook.com</a></p>
+            <h2 id="contact-title">İletişim</h2>
+            <p id="contact-text"><a href="mailto:nevmara@outlook.com">nevmara@outlook.com</a></p>
         </section>
 
         <section id="privacy-policy" class="fade-in">
-            <h2>Gizlilik Politikası</h2>
+            <h2 id="privacy-policy-title">Gizlilik Politikası</h2>
             <button id="toggle-privacy">Gizlilik Politikasını Göster</button>
             <div id="privacy-content" style="display: none;">
                 <!-- Markdown içeriğiniz buraya yüklenecek -->
