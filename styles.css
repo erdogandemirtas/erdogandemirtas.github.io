@@ -24,14 +24,14 @@ main {
     transition: padding 0.3s ease;
 }
 
-/* Header ve Menü */
+/* Header */
 header {
     background: #fff;
     color: #333;
     padding: 10px 30px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-bottom: 1px solid #e0e0e5;
     transition: all 0.3s ease;
@@ -47,40 +47,9 @@ header h1 {
     transition: font-size 0.3s ease;
 }
 
-.menu-button {
-    display: none;
-    font-size: 1.8em;
-    color: #333;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
 /* Menü */
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-nav ul li {
-    margin: 0 15px;
-    transition: margin 0.3s ease;
-}
-
-nav ul li a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #0070c9;
+nav {
+    display: none; /* Menü görünümünü gizleyin */
 }
 
 /* Ana Bölümler */
@@ -191,34 +160,9 @@ footer {
 
 /* Duyarlı Tasarım */
 @media (max-width: 768px) {
-    .menu-button {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
+    /* Menü düğmesini gösterme kısmını güncelleyin */
+    header {
         flex-direction: column;
-        width: 100%;
-        background: #fff;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        box-sizing: border-box;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    nav ul li a {
-        padding: 10px;
-        display: block;
     }
 
     section {
@@ -237,24 +181,4 @@ img {
     max-width: 100%;
     height: auto;
     transition: max-width 0.3s ease, height 0.3s ease;
-}
-
-/* Düğmeler */
-button, a.button-link {
-    background-color: #0070c9;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-}
-
-button:hover, a.button-link:hover {
-    background-color: #005bb5;
-    transform: scale(1.05);
 }
