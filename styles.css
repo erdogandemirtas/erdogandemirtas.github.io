@@ -47,6 +47,25 @@ header h1 {
     transition: font-size 0.3s ease;
 }
 
+/* Dil Seçici */
+.language-selector {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.language-option {
+    margin: 0 10px;
+    font-size: 1em;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.language-option:hover {
+    color: #0070c9;
+}
+
 /* Menü */
 nav {
     display: none; /* Menü görünümünü gizleyin */
