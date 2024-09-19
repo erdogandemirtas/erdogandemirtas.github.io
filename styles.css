@@ -3,9 +3,9 @@ html, body {
     margin: 0; /* Sayfanın etrafındaki boşlukları kaldır */
     padding: 0; /* Sayfanın etrafındaki iç boşlukları kaldır */
     height: 100%; /* Yüksekliği tam ekran yap */
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Yazı tipi ayarı */
+    font-family: 'Arial', sans-serif; /* Yazı tipi ayarı */
     color: #333; /* Yazı rengi */
-    background-color: #f5f5f7; /* Arka plan rengi */
+    background-color: #f0f4f8; /* Arka plan rengi */
     display: flex; /* Flexbox düzeni kullan */
     flex-direction: column; /* Elemanları dikeyde hizala */
     min-height: 100vh; /* Sayfa yüksekliğini tam ekran yap */
@@ -26,22 +26,22 @@ main {
 
 /* Header */
 header {
-    background: #fff; /* Arka plan rengi */
+    background: #ffffff; /* Arka plan rengi */
     color: #333; /* Yazı rengi */
     padding: 10px 30px; /* İç boşluk */
     width: 100%; /* Genişlik */
     display: flex; /* Flexbox düzeni kullan */
     justify-content: space-between; /* Sol ve sağ elemanları hizala */
     align-items: center; /* Elemanları ortala */
-    border-bottom: 1px solid #e0e0e5; /* Alt kenar sınırı */
+    border-bottom: 1px solid #e1e5eb; /* Alt kenar sınırı */
     transition: all 0.3s ease; /* Geçiş animasyonları */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Gölge efekti */
     box-sizing: border-box; /* Kutunun toplam genişliğini hesapla */
 }
 
 header h1 {
     margin: 0; /* Kenar boşluklarını kaldır */
-    font-size: 1.5em; /* Yazı boyutu */
+    font-size: 2em; /* Yazı boyutu */
     letter-spacing: 1px; /* Harf aralığı */
     font-weight: bold; /* Kalın yazı tipi */
     transition: font-size 0.3s ease; /* Yazı boyutu geçiş animasyonu */
@@ -52,9 +52,9 @@ section {
     padding: 40px; /* İç boşluk */
     width: 100%; /* Genişlik */
     max-width: 700px; /* Maksimum genişlik */
-    background: #fff; /* Arka plan rengi */
-    border-radius: 12px; /* Köşe yuvarlama */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    background: #ffffff; /* Arka plan rengi */
+    border-radius: 8px; /* Köşe yuvarlama */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Gölge efekti */
     margin: 30px 0; /* Dış boşluk */
     transition: all 0.3s ease; /* Geçiş animasyonları */
     box-sizing: border-box; /* Kutunun toplam genişliğini hesapla */
@@ -62,14 +62,14 @@ section {
 
 /* Footer */
 footer {
-    background: #fff; /* Arka plan rengi */
+    background: #ffffff; /* Arka plan rengi */
     color: #333; /* Yazı rengi */
     text-align: center; /* Metni ortala */
     padding: 15px 30px; /* İç boşluk */
     width: 100%; /* Genişlik */
-    border-top: 1px solid #e0e0e5; /* Üst kenar sınırı */
+    border-top: 1px solid #e1e5eb; /* Üst kenar sınırı */
     transition: all 0.3s ease; /* Geçiş animasyonları */
-    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Gölge efekti */
     box-sizing: border-box; /* Kutunun toplam genişliğini hesapla */
 }
 
@@ -82,14 +82,14 @@ footer {
 }
 
 .social-media a {
-    color: #333; /* Yazı rengi */
+    color: #0070c9; /* Sosyal medya linklerinin rengi */
     margin: 0 10px; /* Yan boşluklar */
     font-size: 1.5em; /* Yazı boyutu */
     transition: color 0.3s ease, transform 0.3s ease; /* Renk ve ölçek geçiş animasyonları */
 }
 
 .social-media a:hover {
-    color: #0070c9; /* Üzerine gelindiğinde renk değişimi */
+    color: #005999; /* Üzerine gelindiğinde renk değişimi */
     transform: scale(1.2); /* Üzerine gelindiğinde ölçek büyütme */
 }
 
@@ -110,7 +110,7 @@ footer {
 #projects ul li a {
     color: #333; /* Yazı rengi */
     text-decoration: none; /* Alt çizgi kaldır */
-    font-weight: bold; /* Kalın yazı tipi */
+    font-weight: normal; /* Normal yazı tipi */
     transition: color 0.3s ease; /* Renk geçiş animasyonu */
 }
 
@@ -123,9 +123,9 @@ footer {
     padding: 40px; /* İç boşluk */
     width: 100%; /* Genişlik */
     max-width: 700px; /* Maksimum genişlik */
-    background: #fff; /* Arka plan rengi */
-    border-radius: 12px; /* Köşe yuvarlama */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    background: #ffffff; /* Arka plan rengi */
+    border-radius: 8px; /* Köşe yuvarlama */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Gölge efekti */
     margin: 30px 0; /* Dış boşluk */
     transition: all 0.3s ease; /* Geçiş animasyonları */
     box-sizing: border-box; /* Kutunun toplam genişliğini hesapla */
@@ -146,36 +146,35 @@ footer {
 /* Fade-in Animasyonu */
 .fade-in {
     opacity: 0; /* Başlangıçta görünmez */
-    transition: opacity 0.3s ease-out; /* Opaklık geçiş animasyonu */
+    transform: translateY(20px); /* Hafif aşağıdan yukarıya kaydırma */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Opaklık ve konum geçiş animasyonları */
 }
 
 .fade-in.visible {
     opacity: 1; /* Görünür hale gelme */
+    transform: translateY(0); /* Orijinal konuma döndürme */
 }
 
 /* Mobil Duyarlı Tasarım */
 @media (max-width: 768px) {
-    .fade-in {
-        /* Mobil görünümde opacity 1 yapmayı deneyelim */
-        opacity: 1 !important; /* Önemli olanı ayarla */
-    }
-}
-
-/* Duyarlı Tasarım */
-@media (max-width: 768px) {
     header {
         flex-direction: column; /* Flex yönünü dikey yap */
         align-items: flex-start; /* Elemanları sola hizala */
+        padding: 10px; /* Daha az iç boşluk */
     }
 
     section {
-        margin: 20px; /* Dış boşluk */
+        margin: 10px; /* Daha az dış boşluk */
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.2em; /* Küçük ekranlarda yazı boyutu */
+        font-size: 1.5em; /* Küçük ekranlarda daha küçük yazı boyutu */
+    }
+
+    .social-media a {
+        font-size: 1.2em; /* Sosyal medya ikonları için daha küçük boyut */
     }
 }
 
@@ -183,5 +182,5 @@ footer {
 img {
     max-width: 100%; /* Resimleri kapsayıcıya uydur */
     height: auto; /* Yüksekliği otomatik ayarla */
-    transition: max-width 0.3s ease, height 0.3s ease; /* Genişlik ve yükseklik geçiş animasyonları */
+    border-radius: 8px; /* Resimlere köşe yuvarlama */
 }

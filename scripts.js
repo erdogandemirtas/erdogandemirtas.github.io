@@ -1,14 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Fade-in efekti için IntersectionObserver
-    // Sayfa yüklendiğinde fade-in sınıfına sahip öğeleri gözlemlemeye başlar
     const fadeInElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Öğenin görünür olduğu durumda 'visible' sınıfını ekler
                 entry.target.classList.add('visible');
             } else {
-                // Öğenin görünür olmadığı durumda 'visible' sınıfını kaldırır
                 entry.target.classList.remove('visible');
             }
         });
@@ -16,19 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
-    fetch('PRIVACY.md') // PRIVACY.md dosyasını yükler
-        .then(response => {
+    const loadPrivacyPolicy = async () => {
+        try {
+            const response = await fetch('PRIVACY.md'); // PRIVACY.md dosyasını yükler
             if (!response.ok) throw new Error('Markdown dosyası yüklenemedi.'); // Yükleme hatası kontrolü
-            return response.text(); // Yanıtı metin olarak döndürür
-        })
-        .then(text => {
+            const text = await response.text(); // Yanıtı metin olarak döndürür
             const privacyContent = document.getElementById('privacy-content');
             privacyContent.innerHTML = marked.parse(text); // Markdown içeriğini HTML'ye dönüştürür
             privacyContent.style.display = 'none'; // Başlangıçta gizli yap
-        })
-        .catch(error => {
+        } catch (error) {
             console.error('Markdown dosyası yüklenirken bir hata oluştu:', error); // Hata durumunda konsola yazdırır
-        });
+        }
+    };
+    loadPrivacyPolicy();
 
     // Gizlilik Politikası Bölümünü Göster/Gizle
     const togglePrivacyButton = document.getElementById('toggle-privacy');
@@ -42,25 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Fade-in efektini yeniden uygulama
             if (isHidden) {
                 privacyContent.classList.add('fade-in');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        } else {
-                            entry.target.classList.remove('visible');
-                        }
-                    });
-                }, { threshold: 0.1 });
                 observer.observe(privacyContent); // Gözlemciyi yeniden başlatır
             }
         });
     }
 
     // Footer'ın doğru konumda kalmasını sağla
-    const footer = document.querySelector('footer');
     const adjustFooterPosition = () => {
         const bodyHeight = document.body.scrollHeight; // Sayfanın toplam yüksekliği
         const windowHeight = window.innerHeight; // Görüntüleme penceresinin yüksekliği
+        const footer = document.querySelector('footer');
         if (bodyHeight < windowHeight) {
             footer.style.position = 'fixed'; // Footer'ı ekranın altında sabitler
             footer.style.bottom = '0';
