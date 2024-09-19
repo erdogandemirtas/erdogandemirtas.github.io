@@ -24,6 +24,43 @@ main {
     transition: padding 0.3s ease; /* İç boşluk geçiş animasyonu */
 }
 
+/* Modal */
+.modal {
+    display: none; /* Başlangıçta gizli */
+    position: fixed; /* Ekranın üstüne sabit */
+    z-index: 1000; /* Diğer içeriklerin üstünde */
+    left: 0;
+    top: 0;
+    width: 100%; /* Tüm genişlik */
+    height: 100%; /* Tüm yükseklik */
+    overflow: auto; /* Kaydırma alanı */
+    background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam arka plan */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Beyaz arka plan */
+    margin: 15% auto; /* Üstten 15%, merkezde */
+    padding: 20px; /* İç boşluk */
+    border: 1px solid #888; /* Kenarlık */
+    width: 80%; /* Genişlik */
+    max-width: 600px; /* Maksimum genişlik */
+    border-radius: 8px; /* Köşe yuvarlama */
+}
+
+.close {
+    color: #aaa; /* Kapatma simgesi rengi */
+    float: right; /* Sağda konumlandır */
+    font-size: 28px; /* Yazı boyutu */
+    font-weight: bold; /* Kalın yazı tipi */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Üzerine gelindiğinde renk değişimi */
+    text-decoration: none; /* Alt çizgi kaldır */
+    cursor: pointer; /* İmleç değiştirme */
+}
+
 /* Header */
 header {
     background: #ffffff; /* Arka plan rengi */
@@ -45,6 +82,16 @@ header h1 {
     letter-spacing: 1px; /* Harf aralığı */
     font-weight: bold; /* Kalın yazı tipi */
     transition: font-size 0.3s ease; /* Yazı boyutu geçiş animasyonu */
+}
+
+.language-options {
+    display: flex; /* Dikey yerleştir */
+    gap: 10px; /* İkonlar arası boşluk */
+}
+
+.language-options img {
+    width: 24px; /* Bayrak boyutu */
+    height: auto; /* Orantılı yüksekliği koru */
 }
 
 /* Ana Bölümler */

@@ -9,55 +9,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.remove('visible');
             }
         });
-    }, { threshold: 0.1 }); // Görünürlük eşiği: %10
+    }, { threshold: 0.1 });
+
     fadeInElements.forEach(el => observer.observe(el));
 
     // Gizlilik politikasını Markdown'dan yükleme ve dönüştürme
     const loadPrivacyPolicy = async () => {
         try {
-            const response = await fetch('PRIVACY.md'); // PRIVACY.md dosyasını yükler
-            if (!response.ok) throw new Error('Markdown dosyası yüklenemedi.'); // Yükleme hatası kontrolü
-            const text = await response.text(); // Yanıtı metin olarak döndürür
+            const response = await fetch('PRIVACY.md');
+            if (!response.ok) throw new Error('Markdown dosyası yüklenemedi.');
+            const text = await response.text();
             const privacyContent = document.getElementById('privacy-content');
-            privacyContent.innerHTML = marked.parse(text); // Markdown içeriğini HTML'ye dönüştürür
-            privacyContent.style.display = 'none'; // Başlangıçta gizli yap
+            privacyContent.innerHTML = marked.parse(text);
         } catch (error) {
-            console.error('Markdown dosyası yüklenirken bir hata oluştu:', error); // Hata durumunda konsola yazdırır
+            console.error('Markdown dosyası yüklenirken bir hata oluştu:', error);
         }
     };
     loadPrivacyPolicy();
 
-    // Gizlilik Politikası Bölümünü Göster/Gizle
-    const togglePrivacyButton = document.getElementById('toggle-privacy');
-    const privacyContent = document.getElementById('privacy-content');
-    if (togglePrivacyButton && privacyContent) {
-        togglePrivacyButton.addEventListener('click', () => {
-            const isHidden = privacyContent.style.display === 'none';
-            privacyContent.style.display = isHidden ? 'block' : 'none'; // Gizliliği gösterir veya gizler
-            togglePrivacyButton.textContent = isHidden ? 'Hide Privacy Policy' : 'Show Privacy Policy'; // Buton metnini günceller
-            
-            // Fade-in efektini yeniden uygulama
-            if (isHidden) {
-                privacyContent.classList.add('fade-in');
-                observer.observe(privacyContent); // Gözlemciyi yeniden başlatır
-            }
-        });
-    }
+    // Modal için değişkenler
+    const modal = document.getElementById("privacy-modal");
+    const openModalButton = document.getElementById("open-modal");
+    const closeModalButton = document.getElementById("close-modal");
+
+    // Modalı açma
+    openModalButton.onclick = function() {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+    };
+
+    // Modalı kapatma
+    closeModalButton.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    };
+
+    // Modal dışına tıklandığında kapatma
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "";
+        }
+    };
 
     // Footer'ın doğru konumda kalmasını sağla
     const adjustFooterPosition = () => {
-        const bodyHeight = document.body.scrollHeight; // Sayfanın toplam yüksekliği
-        const windowHeight = window.innerHeight; // Görüntüleme penceresinin yüksekliği
+        const bodyHeight = document.body.scrollHeight;
+        const windowHeight = window.innerHeight;
         const footer = document.querySelector('footer');
         if (bodyHeight < windowHeight) {
-            footer.style.position = 'fixed'; // Footer'ı ekranın altında sabitler
+            footer.style.position = 'fixed';
             footer.style.bottom = '0';
-            footer.style.width = '100%'; // Footer'ın genişliğini ayarlar
+            footer.style.width = '100%';
         } else {
-            footer.style.position = 'relative'; // Sayfa içeriğine göre footer'ın konumunu değiştirir
+            footer.style.position = 'relative';
             footer.style.bottom = 'auto';
         }
     };
-    window.addEventListener('resize', adjustFooterPosition); // Pencere boyutu değiştiğinde pozisyonu ayarlar
-    adjustFooterPosition(); // Sayfa yüklendiğinde pozisyonu ayarlar
+    window.addEventListener('resize', adjustFooterPosition);
+    adjustFooterPosition();
 });
