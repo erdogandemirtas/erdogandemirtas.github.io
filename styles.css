@@ -84,16 +84,6 @@ header h1 {
     transition: font-size 0.3s ease; /* Yazı boyutu geçiş animasyonu */
 }
 
-.language-options {
-    display: flex; /* Dikey yerleştir */
-    gap: 10px; /* İkonlar arası boşluk */
-}
-
-.language-options img {
-    width: 24px; /* Bayrak boyutu */
-    height: auto; /* Orantılı yüksekliği koru */
-}
-
 /* Ana Bölümler */
 section {
     padding: 40px; /* İç boşluk */
