@@ -78,7 +78,7 @@ header {
 
 header h1 {
     margin: 0; /* Kenar boşluklarını kaldır */
-    font-size: 2em; /* Yazı boyutu */
+    font-size: 1.75em; /* Yazı boyutu */
     letter-spacing: 1px; /* Harf aralığı */
     font-weight: bold; /* Kalın yazı tipi */
     transition: font-size 0.3s ease; /* Yazı boyutu geçiş animasyonu */
@@ -220,4 +220,50 @@ img {
     max-width: 100%; /* Resimleri kapsayıcıya uydur */
     height: auto; /* Yüksekliği otomatik ayarla */
     border-radius: 8px; /* Resimlere köşe yuvarlama */
+}
+
+/* Varsayılan tema (açık tema) */
+body {
+    background-color: #f0f4f8; /* Açık arka plan */
+    color: #333; /* Yazı rengi */
+}
+
+/* Karanlık tema */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1e1e1e; /* Karanlık arka plan */
+        color: #ddd; /* Açık yazı rengi */
+    }
+
+    header, section, footer, .modal-content, #privacy-policy {
+        background-color: #2a2a2a; /* Koyu arka plan */
+        color: #ddd; /* Açık yazı rengi */
+        border-color: #444; /* Kenarlık rengi */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Daha koyu gölge */
+    }
+
+    header h1, #projects ul li a, #privacy-policy h2 {
+        color: #fff; /* Başlıklar için beyaz renk */
+    }
+
+    .social-media a {
+        color: #4dabf7; /* İkonlar için daha açık bir mavi */
+    }
+
+    .social-media a:hover {
+        color: #82caff; /* Hover durumunda daha parlak mavi */
+    }
+
+    .close {
+        color: #ccc; /* Kapatma simgesi rengi */
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #fff; /* Üzerine gelindiğinde beyaz */
+    }
+
+    img {
+        border-radius: 8px; /* Karanlık temada da resim köşe yuvarlaması korunur */
+    }
 }
