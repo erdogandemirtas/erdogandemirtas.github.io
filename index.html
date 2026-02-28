@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Software and design by Nevmara.">
+    <meta name="description" content="Nevmara">
     <meta name="author" content="Nevmara">
     <title>Nevmara</title>
     
@@ -11,10 +11,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
-    <!-- Fonts: Plus Jakarta Sans (More geometric & modern than Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -23,42 +22,37 @@
                 extend: {
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                        display: ['Fraunces', 'serif'],
                     },
                     colors: {
                         nev: {
-                            bg: '#ffffff',
-                            darkBg: '#09090b', // Deep Zinc
-                            surface: '#f4f4f5',
-                            darkSurface: '#18181b',
-                            primary: '#6366f1', // Indigo
-                            darkPrimary: '#818cf8',
-                            text: '#18181b',
-                            darkText: '#e4e4e7',
+                            bg: '#fdfaf6',
+                            darkBg: '#0a090d',
+                            surface: '#ffffff',
+                            darkSurface: '#15131a',
+                            primary: '#6d28d9',
+                            accent: '#ec4899',
+                            darkPrimary: '#a78bfa',
                         }
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'aurora': 'aurora 20s linear infinite',
+                        'reveal': 'reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     },
                     keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: 0, transform: 'translateY(10px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        aurora: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        reveal: {
+                            '0%': { opacity: 0, transform: 'translateY(20px)', filter: 'blur(8px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)', filter: 'blur(0)' },
                         }
-                    },
-                    typography: (theme) => ({
-                        DEFAULT: {
-                            css: {
-                                color: '#18181b',
-                                a: { color: '#6366f1', textDecoration: 'none' },
-                            },
-                        },
-                        invert: {
-                            css: {
-                                color: '#e4e4e7',
-                                a: { color: '#818cf8' },
-                            },
-                        },
-                    }),
+                    }
                 }
             }
         }
@@ -67,342 +61,324 @@
     <style>
         body {
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #fdfaf6;
         }
-        
-        /* Modern Tech Navbar */
-        .nav-blur {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+        .dark body { background-color: #0a090d; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(21, 19, 26, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .dark .nav-blur {
-            background-color: rgba(9, 9, 11, 0.85);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+        .bento-card {
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 3px; }
-        .dark ::-webkit-scrollbar-thumb { background: #3f3f46; }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.1);
+        }
 
-        /* Tech Card Hover Effect */
-        .tech-card {
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-        .tech-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(99, 102, 241, 0.3); /* Primary color border on hover */
-        }
+        ::selection { background: #6d28d9; color: white; }
     </style>
 </head>
-<body class="bg-nev-bg text-nev-text dark:bg-nev-darkBg dark:text-nev-darkText transition-colors duration-300 selection:bg-nev-primary selection:text-white">
+<body class="text-slate-800 dark:text-slate-200 transition-colors duration-1000">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 nav-blur transition-all duration-300 top-0">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center text-sm font-medium">
-            <!-- Logo -->
-            <a href="#" class="text-xl font-bold tracking-tight hover:text-nev-primary transition-colors">NEVMARA</a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 text-gray-600 dark:text-gray-400">
-                <a href="#apps" class="hover:text-nev-primary dark:hover:text-nev-darkPrimary transition-colors">Apps</a>
-                <a href="#philosophy" class="hover:text-nev-primary dark:hover:text-nev-darkPrimary transition-colors">Manifesto</a>
-                <a href="#contact" class="hover:text-nev-primary dark:hover:text-nev-darkPrimary transition-colors">Contact</a>
+    <!-- Floating Navigation -->
+    <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md">
+        <div class="glass rounded-full px-6 py-4 flex justify-between items-center shadow-2xl">
+            <a href="#" class="font-display font-bold text-lg tracking-tight">NEVMARA</a>
+            <div class="flex items-center gap-4 md:gap-6">
+                <a href="#apps" data-i18n="nav-traces" class="text-[10px] uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity">İzler</a>
+                <a href="#manifesto" data-i18n="nav-soul" class="text-[10px] uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity">Öz</a>
                 
-                <div class="h-4 w-px bg-gray-300 dark:bg-gray-700 mx-2"></div>
-
-                <button id="theme-toggle" class="hover:text-nev-primary dark:hover:text-nev-darkPrimary transition-colors focus:outline-none" aria-label="Toggle Theme">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <div class="h-4 w-px bg-slate-300 dark:bg-white/10"></div>
+                
+                <button id="lang-toggle" class="text-[10px] font-bold uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity">EN</button>
+                
+                <button id="theme-toggle" class="opacity-50 hover:opacity-100">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white dark:bg-nev-darkBg border-b border-gray-100 dark:border-gray-800 md:hidden shadow-lg">
-            <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium">
-                <a href="#apps" class="block py-2">Apps</a>
-                <a href="#philosophy" class="block py-2">Manifesto</a>
-                <a href="#contact" class="block py-2">Contact</a>
-                <button id="theme-toggle-mobile" class="text-left py-2 text-nev-primary">Switch Theme</button>
             </div>
         </div>
     </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="pt-32 pb-24 md:pt-48 md:pb-40 px-6 relative">
-            <!-- Geometric Background Decoration -->
-            <div class="absolute top-20 right-0 w-1/3 h-full bg-gradient-to-b from-indigo-50/50 to-transparent dark:from-indigo-900/10 dark:to-transparent -z-10 pointer-events-none blur-3xl"></div>
+    <!-- Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden opacity-20 pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(109,40,217,0.05),transparent)]"></div>
+    </div>
 
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="animate-fade-in">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs font-semibold uppercase tracking-wider text-gray-500 mb-6">
-                        <span class="w-2 h-2 rounded-full bg-nev-primary animate-pulse"></span>
-                        Digital Studio
-                    </div>
-                    <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                        Software crafted <br>
-                        <span class="text-nev-primary dark:text-nev-darkPrimary">with purpose.</span>
-                    </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-lg leading-relaxed">
-                        We build intuitive tools designed to respect your workflow. 
-                        No clutter, just function.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#apps" class="bg-nev-primary hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-medium transition-all shadow-lg shadow-indigo-500/20">
-                            Our Work
-                        </a>
-                        <a href="#contact" class="border border-gray-200 dark:border-gray-700 hover:border-nev-primary dark:hover:border-nev-darkPrimary px-8 py-3 rounded-lg font-medium transition-all">
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
-                <!-- Abstract Visual -->
-                <div class="hidden md:flex justify-end opacity-80">
-                   <!-- Replaced generic image with a CSS Grid pattern representation -->
-                   <div class="grid grid-cols-3 gap-4 p-6 rotate-3">
-                        <div class="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-2xl"></div>
-                        <div class="w-24 h-24 bg-indigo-100 dark:bg-indigo-900/40 rounded-2xl translate-y-4"></div>
-                        <div class="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-2xl"></div>
-                        <div class="w-24 h-24 bg-gray-50 dark:bg-gray-800/50 rounded-2xl -translate-y-4"></div>
-                        <div class="w-24 h-24 bg-nev-primary dark:bg-indigo-600 rounded-2xl"></div>
-                        <div class="w-24 h-24 bg-gray-50 dark:bg-gray-800/50 rounded-2xl translate-y-8"></div>
-                   </div>
+    <main class="px-6">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center items-center text-center max-w-5xl mx-auto">
+            <div class="animate-reveal opacity-0">
+                <h1 class="font-display text-5xl md:text-8xl font-light tracking-tight leading-tight mb-12">
+                    <span data-i18n="hero-title-1">Sadelik, karmaşıklığın</span> <br> 
+                    <span data-i18n="hero-title-2" class="italic font-normal text-nev-primary">nihai çözümüdür.</span>
+                </h1>
+                
+                <p data-i18n="hero-desc" class="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-16 leading-relaxed">
+                    Nevmara, gürültüyü azaltan ve dikkati koruyan araçlar üzerine düşünür. 
+                    Ekranların ötesinde bir dinginlik arayışındayız.
+                </p>
+                
+                <div class="flex gap-12 justify-center items-center">
+                    <a href="#apps" data-i18n="hero-cta-1" class="text-sm font-semibold border-b border-nev-primary/30 pb-1 hover:border-nev-primary transition-all">
+                        Üretimlerimize Bak
+                    </a>
+                    <a href="#manifesto" data-i18n="hero-cta-2" class="text-sm font-semibold border-b border-transparent pb-1 opacity-40 hover:opacity-100 transition-all">
+                        Anlayışımız
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Apps Grid -->
-        <section id="apps" class="max-w-6xl mx-auto px-6 pb-32">
-            <div class="flex justify-between items-end mb-12 border-b border-gray-100 dark:border-gray-800 pb-4">
-                <h2 class="text-3xl font-bold">Selected Projects</h2>
+        <!-- Projects Section -->
+        <section id="apps" class="max-w-7xl mx-auto py-32">
+            <div class="mb-24 text-center">
+                <h2 data-i18n="projects-title" class="font-display text-4xl font-light italic">Somut Yansımalar</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Vakitler (Featured) -->
-                <div class="tech-card md:col-span-2 bg-nev-surface dark:bg-nev-darkSurface rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
-                    <div class="z-10 flex-1">
-                        <h3 class="text-2xl font-bold mb-2">Vakitler</h3>
-                        <p class="text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
-                            A precision tool for prayer times. Featuring a clean interface and robust widget ecosystem for modern devices.
-                        </p>
-                        <a href="https://play.google.com/store/apps/details?id=com.nevmara.vakitler" target="_blank" class="inline-flex items-center text-sm font-semibold text-nev-primary dark:text-nev-darkPrimary hover:underline">
-                            Get on Play Store 
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                        </a>
-                    </div>
-                    <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-transform duration-500">
-                        <img src="https://play-lh.googleusercontent.com/6q8ottzIZ5khc5I-SSXMlwlalCq-1OFv8IKiLtMLE1yO67RaVDrYg--8aVFWQfUtIwo=w240-h480-rw" alt="Vakitler" class="w-full h-full object-cover">
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-10">
+                <!-- Vakitler -->
+                <div class="md:col-span-4 md:row-span-2 bento-card bg-nev-surface dark:bg-nev-darkSurface rounded-5xl p-12 border border-slate-100 dark:border-white/5">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="w-32 h-32 shrink-0 rounded-[2.5rem] bg-slate-50 dark:bg-white/5 p-2">
+                            <img src="https://play-lh.googleusercontent.com/6q8ottzIZ5khc5I-SSXMlwlalCq-1OFv8IKiLtMLE1yO67RaVDrYg--8aVFWQfUtIwo=w240-h480-rw" alt="Vakitler" class="w-full h-full rounded-[2.1rem] object-cover opacity-80">
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="font-display text-4xl font-semibold mb-6">Vakitler</h3>
+                            <p data-i18n="vakitler-desc" class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed mb-10 max-w-lg">
+                                Günün doğal akışını takip etmek için bir araç. İbadetleri, teknolojik bir yük haline getirmeden, sessizce hatırlatır.
+                            </p>
+                            <a href="https://play.google.com/store/apps/details?id=com.nevmara.vakitler" data-i18n="vakitler-cta" class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-nev-primary">
+                                Gözlemle →
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Falling Animals -->
-                <div class="tech-card bg-nev-surface dark:bg-nev-darkSurface rounded-2xl p-8 flex flex-col items-start relative group">
-                    <div class="mb-6 w-20 h-20 rounded-xl overflow-hidden shadow-md">
-                        <img src="https://play-lh.googleusercontent.com/0Teky13bReJTDxwkgtMVB8BQgeYlSKg82dBzVKtWNkby4UjHflmdK29S080GcqpgTw=w240-h480-rw" alt="Falling Animals" class="w-full h-full object-cover">
+                <div class="md:col-span-2 bento-card bg-nev-surface dark:bg-nev-darkSurface rounded-5xl p-10 border border-slate-100 dark:border-white/5">
+                    <h3 class="font-display text-2xl font-semibold mb-4">Falling Animals</h3>
+                    <p data-i18n="falling-desc" class="text-sm text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">Zihinsel çeviklik ve odak üzerine bir deneme.</p>
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden opacity-60">
+                         <img src="https://play-lh.googleusercontent.com/0Teky13bReJTDxwkgtMVB8BQgeYlSKg82dBzVKtWNkby4UjHflmdK29S080GcqpgTw=w240-h480-rw" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Falling Animals</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">
-                        A fast-paced reflex challenge. Optimized for performance and fluid gameplay.
-                    </p>
-                    <a href="https://play.google.com/store/apps/details?id=com.nevmara.fallinganimals" class="text-sm font-semibold text-nev-primary dark:text-nev-darkPrimary hover:underline">
-                        View Details
-                    </a>
                 </div>
 
                 <!-- Great Ghost -->
-                <div class="tech-card bg-nev-surface dark:bg-nev-darkSurface rounded-2xl p-8 flex flex-col items-start relative group">
-                    <div class="mb-6 w-20 h-20 rounded-xl overflow-hidden shadow-md">
-                        <img src="https://play-lh.googleusercontent.com/SKXDtZKXIxm6lD9BdT0oW_wW4FZYQMmDzLclgqtf1XSZ4EugP88p0BfHtRjCcq7jkA=w240-h480-rw" alt="Great Ghost" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Great Ghost</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6 flex-grow">
-                        Atmospheric survival adventure. Immersive audio design meets challenging mechanics.
-                    </p>
-                    <a href="https://play.google.com/store/apps/details?id=com.mavier.greatghost" class="text-sm font-semibold text-nev-primary dark:text-nev-darkPrimary hover:underline">
-                        View Details
-                    </a>
+                <div class="md:col-span-2 bento-card bg-nev-darkSurface text-white rounded-5xl p-10">
+                    <h3 class="font-display text-2xl font-semibold mb-4">Great Ghost</h3>
+                    <p data-i18n="ghost-desc" class="text-slate-400 text-sm leading-relaxed mb-6">Bilinmeyenin içinde sessiz bir varoluş çabası.</p>
+                    <span data-i18n="exp-tag" class="text-[10px] uppercase tracking-widest text-nev-darkPrimary">Deneyim</span>
                 </div>
-
             </div>
         </section>
 
-        <!-- Manifesto Section -->
-        <section id="philosophy" class="bg-gray-50 dark:bg-zinc-900/50 py-32 px-6">
-            <div class="max-w-3xl mx-auto text-center animate-on-scroll opacity-0 translate-y-4 transition-all duration-700">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Essentialism in Code.</h2>
-                <div class="w-16 h-1 bg-nev-primary mx-auto mb-8 rounded-full"></div>
-                <p class="text-xl text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
-                    "We remove the unnecessary so the necessary may speak."
-                </p>
-                <p class="mt-6 text-gray-500 dark:text-gray-400">
-                    At Nevmara, every pixel serves a purpose. We believe software should be quiet, reliable, and invisible until you need it.
-                </p>
+        <!-- Manifesto -->
+        <section id="manifesto" class="max-w-3xl mx-auto py-48 text-center">
+            <h2 data-i18n="manifesto-title" class="font-display text-4xl md:text-5xl font-light mb-16 italic">Mesele, daha azına sahip olmaktır.</h2>
+            <div class="space-y-10 text-xl text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                <p data-i18n="manifesto-p1">Yazılımın hayatımızı kolaylaştırması gerektiğine inanıyoruz, onu ele geçirmesine değil.</p>
+                <p data-i18n="manifesto-p2">Bizim için başarı; bir uygulamanın kaç saat kullanıldığı değil, kullanıcısına kaç dakika zaman kazandırdığıdır.</p>
+                <p data-i18n="manifesto-p3">Gereksiz olan her şeyi eliyoruz. Geriye sadece anlam kalana dek.</p>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-nev-darkBg border-t border-gray-100 dark:border-gray-800 pt-16 pb-12 px-6 text-sm" id="contact">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12">
-            <div>
-                <a href="#" class="text-lg font-bold tracking-tight block mb-4">NEVMARA</a>
-                <p class="text-gray-500 max-w-xs">Creating digital solutions from Turkey.</p>
-                <p class="text-gray-500 mt-2">© 2026 Nevmara Software.</p>
+    <footer class="bg-nev-surface dark:bg-nev-darkSurface pt-24 pb-32 px-8 rounded-t-[5rem]" id="contact">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
+            <div class="max-w-xs">
+                <h4 class="font-display text-2xl font-bold text-nev-primary mb-6">NEVMARA</h4>
+                <p data-i18n="footer-tagline" class="text-sm text-slate-500 leading-relaxed italic">
+                    "Sessizliği tasarlıyoruz."
+                </p>
             </div>
             
-            <div class="flex gap-16">
-                <div>
-                    <h4 class="font-bold mb-4">Social</h4>
-                    <ul class="space-y-2 text-gray-500">
-                        <li><a href="https://x.com/nevmarasoftware" class="hover:text-nev-primary transition-colors">Twitter / X</a></li>
-                        <li><a href="https://www.youtube.com/@nevmara" class="hover:text-nev-primary transition-colors">YouTube</a></li>
-                        <li><a href="https://github.com/erdogandemirtas" class="hover:text-nev-primary transition-colors">GitHub</a></li>
+            <div class="flex flex-wrap gap-20">
+                <div class="space-y-4">
+                    <h5 data-i18n="footer-contact" class="text-[10px] uppercase tracking-widest text-slate-400">İrtibat</h5>
+                    <ul class="text-sm space-y-2 text-slate-500">
+                        <li><a href="mailto:nevmara@outlook.com" data-i18n="footer-email" class="hover:text-nev-primary transition-colors">E-Posta</a></li>
+                        <li><a href="https://x.com/nevmarasoftware" class="hover:text-nev-primary transition-colors">Twitter (X)</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-bold mb-4">Legal & Contact</h4>
-                    <ul class="space-y-2 text-gray-500">
-                        <li><a href="mailto:nevmara@outlook.com" class="hover:text-nev-primary transition-colors">Email Us</a></li>
-                        <li><button id="open-privacy" class="hover:text-nev-primary transition-colors text-left">Privacy Policy</button></li>
+                <div class="space-y-4">
+                    <h5 data-i18n="footer-docs" class="text-[10px] uppercase tracking-widest text-slate-400">Belgeler</h5>
+                    <ul class="text-sm space-y-2 text-slate-500">
+                        <li><button id="open-privacy" data-i18n="footer-privacy" class="hover:text-nev-primary transition-colors">Gizlilik Yaklaşımı</button></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <div class="mt-24 pt-8 border-t border-slate-100 dark:border-white/5 text-center">
+            <p class="text-[10px] text-slate-400 uppercase tracking-[0.5em]">2026 Nevmara Software Studio</p>
+        </div>
     </footer>
 
-    <!-- Minimalist Privacy Modal -->
-    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity opacity-0 duration-300" id="modal-backdrop"></div>
-        
-        <!-- Modal Panel -->
-        <div id="modal-panel" class="relative bg-white dark:bg-zinc-900 rounded-lg shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col opacity-0 transform translate-y-4 transition-all duration-300 border border-gray-200 dark:border-gray-700">
-            
-            <!-- Header -->
-            <div class="flex justify-between items-center px-6 py-4 border-b border-gray-100 dark:border-gray-800">
-                <h3 class="font-bold text-lg">Privacy Policy</h3>
-                <button id="close-privacy-btn" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors p-1">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            
-            <!-- Content -->
-            <div id="privacy-content-area" class="p-8 overflow-y-auto prose prose-sm max-w-none dark:prose-invert prose-indigo">
-                 <!-- Loading State -->
-                 <div class="flex items-center justify-center py-12">
-                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-nev-primary"></div>
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6">
+        <div class="absolute inset-0 bg-nev-darkBg/80 backdrop-blur-md" id="modal-backdrop"></div>
+        <div id="modal-panel" class="relative bg-nev-surface dark:bg-nev-darkSurface w-full max-w-2xl rounded-5xl shadow-2xl overflow-hidden transform translate-y-20 transition-transform duration-700">
+            <div class="p-12 max-h-[80vh] overflow-y-auto">
+                <div class="flex justify-between items-center mb-10">
+                    <h3 data-i18n="modal-privacy-title" class="font-display text-2xl font-bold">Gizlilik</h3>
+                    <button id="close-privacy-btn" class="opacity-50 hover:opacity-100">✕</button>
+                </div>
+                <div id="privacy-content-area" class="prose dark:prose-invert prose-sm">
+                    <p data-i18n="modal-loading">Dosya okunuyor...</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // --- Theme Logic ---
-        const htmlEl = document.documentElement;
-        
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            htmlEl.classList.add('dark');
-        } else {
-            htmlEl.classList.remove('dark');
-        }
-
-        function toggleTheme() {
-            if (htmlEl.classList.contains('dark')) {
-                htmlEl.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                htmlEl.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+        // --- Translations ---
+        const translations = {
+            tr: {
+                "nav-traces": "İzler",
+                "nav-soul": "Öz",
+                "hero-title-1": "Sadelik, karmaşıklığın",
+                "hero-title-2": "nihai çözümüdür.",
+                "hero-desc": "Nevmara, gürültüyü azaltan ve dikkati koruyan araçlar üzerine düşünür. Ekranların ötesinde bir dinginlik arayışındayız.",
+                "hero-cta-1": "Üretimlerimize Bak",
+                "hero-cta-2": "Anlayışımız",
+                "projects-title": "Somut Yansımalar",
+                "vakitler-desc": "Günün doğal akışını takip etmek için bir araç. İbadetleri, teknolojik bir yük haline getirmeden, sessizce hatırlatır.",
+                "vakitler-cta": "Gözlemle →",
+                "falling-desc": "Zihinsel çeviklik ve odak üzerine bir deneme.",
+                "ghost-desc": "Bilinmeyenin içinde sessiz bir varoluş çabası.",
+                "exp-tag": "Deneyim",
+                "manifesto-title": "Mesele, daha azına sahip olmaktır.",
+                "manifesto-p1": "Yazılımın hayatımızı kolaylaştırması gerektiğine inanıyoruz, onu ele geçirmesine değil.",
+                "manifesto-p2": "Bizim için başarı; bir uygulamanın kaç saat kullanıldığı değil, kullanıcısına kaç dakika zaman kazandırdığıdır.",
+                "manifesto-p3": "Gereksiz olan her şeyi eliyoruz. Geriye sadece anlam kalana dek.",
+                "footer-tagline": "\"Sessizliği tasarlıyoruz.\"",
+                "footer-contact": "İrtibat",
+                "footer-email": "E-Posta",
+                "footer-docs": "Belgeler",
+                "footer-privacy": "Gizlilik Yaklaşımı",
+                "modal-privacy-title": "Gizlilik",
+                "modal-loading": "Dosya okunuyor..."
+            },
+            en: {
+                "nav-traces": "Traces",
+                "nav-soul": "Soul",
+                "hero-title-1": "Simplicity is the",
+                "hero-title-2": "ultimate sophistication.",
+                "hero-desc": "Nevmara contemplates tools that reduce noise and protect attention. We are in search of serenity beyond screens.",
+                "hero-cta-1": "View Our Works",
+                "hero-cta-2": "Philosophy",
+                "projects-title": "Tangible Reflections",
+                "vakitler-desc": "A tool to follow the natural flow of the day. It reminds of prayers silently, without turning them into a technological burden.",
+                "vakitler-cta": "Observe →",
+                "falling-desc": "An experiment on mental agility and focus.",
+                "ghost-desc": "A silent effort of existence within the unknown.",
+                "exp-tag": "Experience",
+                "manifesto-title": "The point is to have less.",
+                "manifesto-p1": "We believe software should simplify our lives, not take them over.",
+                "manifesto-p2": "For us, success is not how many hours an app is used, but how many minutes it saves for the user.",
+                "manifesto-p3": "We eliminate everything unnecessary. Until only meaning remains.",
+                "footer-tagline": "\"Designing silence.\"",
+                "footer-contact": "Contact",
+                "footer-email": "Email",
+                "footer-docs": "Documents",
+                "footer-privacy": "Privacy Approach",
+                "modal-privacy-title": "Privacy",
+                "modal-loading": "Reading file..."
             }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'tr';
+
+        function updateLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            document.getElementById('lang-toggle').textContent = lang === 'tr' ? 'EN' : 'TR';
+            document.documentElement.lang = lang;
+            localStorage.setItem('lang', lang);
         }
 
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
-
-        // --- Mobile Menu ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            updateLanguage(currentLang);
         });
 
-        // --- Privacy Modal Logic (Strict) ---
+        // Initial language load
+        updateLanguage(currentLang);
+
+        // --- Theme Logic ---
+        const htmlEl = document.documentElement;
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlEl.classList.add('dark');
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            htmlEl.classList.toggle('dark');
+            localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // --- Privacy Modal ---
         const modal = document.getElementById('privacy-modal');
-        const backdrop = document.getElementById('modal-backdrop');
         const panel = document.getElementById('modal-panel');
         const openBtn = document.getElementById('open-privacy');
         const closeBtn = document.getElementById('close-privacy-btn');
+        const backdrop = document.getElementById('modal-backdrop');
         const contentArea = document.getElementById('privacy-content-area');
-        let privacyFetched = false;
 
         async function fetchPrivacy() {
-            if(privacyFetched) return;
             try {
-                // Sadece dosyayı çeker, bulamazsa hata verir. Uydurma metin yok.
+                // Dil bazlı dosya kontrolü yapabilirsin (PRIVACY_en.md gibi)
                 const res = await fetch('PRIVACY.md');
-                if(!res.ok) throw new Error('Not found');
-                
-                const text = await res.text();
+                const text = res.ok ? await res.text() : (currentLang === 'tr' ? "# Gizlilik Politikası\nHenüz eklenmedi." : "# Privacy Policy\nNot added yet.");
                 contentArea.innerHTML = marked.parse(text);
-                privacyFetched = true;
-            } catch (e) {
-                // Dosya yoksa sadece teknik hata.
-                contentArea.innerHTML = '<div class="text-center text-red-500 py-4">Privacy Policy document not found (PRIVACY.md).</div>';
+            } catch {
+                contentArea.innerHTML = currentLang === 'tr' ? "<p>Bir hata oluştu.</p>" : "<p>An error occurred.</p>";
             }
         }
 
-        function openModal(e) {
-            e.preventDefault();
-            modal.classList.remove('hidden');
-            fetchPrivacy();
-            
-            requestAnimationFrame(() => {
-                backdrop.classList.remove('opacity-0');
-                panel.classList.remove('opacity-0', 'translate-y-4');
-                panel.classList.add('opacity-100', 'translate-y-0');
-            });
+        function toggleModal(show) {
+            if(show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                fetchPrivacy();
+                setTimeout(() => panel.classList.remove('translate-y-20'), 10);
+            } else {
+                panel.classList.add('translate-y-20');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }, 500);
+            }
         }
 
-        function closeModal() {
-            backdrop.classList.add('opacity-0');
-            panel.classList.remove('opacity-100', 'translate-y-0');
-            panel.classList.add('opacity-0', 'translate-y-4');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        }
+        openBtn.addEventListener('click', () => toggleModal(true));
+        closeBtn.addEventListener('click', () => toggleModal(false));
+        backdrop.addEventListener('click', () => toggleModal(false));
 
-        openBtn.addEventListener('click', openModal);
-        closeBtn.addEventListener('click', closeModal);
-        backdrop.addEventListener('click', closeModal);
-        document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal() });
-
-        // --- Scroll Animation ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.remove('opacity-0', 'translate-y-4');
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.add('animate-reveal');
+                    entry.target.classList.remove('opacity-0');
                 }
             });
-        });
-        
-        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+        }, { threshold: 0.1 });
 
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.classList.add('opacity-0');
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
