@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO ve Meta Açıklamaları -->
     <title>Erdoğan Demirtaş</title>
+    <meta name="description" content="Erdoğan Demirtaş'ın kişisel web sitesi ve portfolyosu.">
+    
+    <!-- Favicon (Kendi ikonunu root dizine favicon.png olarak eklemelisin) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph / Sosyal Medya Paylaşım Etiketleri -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://erdogandemirtas.github.io/">
+    <meta property="og:title" content="Erdoğan Demirtaş">
+    <meta property="og:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
+    <!-- Aşağıdaki görseli sitene ekleyip linkini güncelleyebilirsin -->
+    <meta property="og:image" content="https://erdogandemirtas.github.io/profile-preview.png"> 
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
@@ -38,13 +53,12 @@
     </script>
     <style>
         body {
-            background-color: #f8fafc; /* Temiz zemin */
+            background-color: #f8fafc;
             color: #111827;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Akıcı Giriş Animasyonları */
         @keyframes fadeUp {
             0% { opacity: 0; transform: translateY(24px) scale(0.98); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -59,13 +73,12 @@
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
 
-        /* iOS 26 Glassmorphism Kartları (VisionOS Esintili) */
         .glass-card {
             background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(40px);
             -webkit-backdrop-filter: blur(40px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 36px; /* Daha geniş, organik köşe ovalliği */
+            border-radius: 36px;
             padding: 1.75rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -77,10 +90,9 @@
             background: rgba(255, 255, 255, 0.75);
         }
 
-        /* Android 17 Hap (Pill) Link Kartları */
         .pill-link {
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Yaylanan Android animasyonu */
-            border-radius: 9999px; /* Tam yuvarlak hap şekli */
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 9999px;
         }
         
         .pill-link:hover {
@@ -88,18 +100,17 @@
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
         }
 
-        /* İkon arka planları için şeffaf renkler (Material You tarzı) */
         .bg-red-soft { background-color: rgba(254, 226, 226, 0.8); color: #dc2626; }
         .bg-purple-soft { background-color: rgba(243, 232, 255, 0.8); color: #9333ea; }
         .bg-amber-soft { background-color: rgba(254, 243, 199, 0.8); color: #d97706; }
         .bg-blue-soft { background-color: rgba(219, 234, 254, 0.8); color: #2563eb; }
         .bg-green-soft { background-color: rgba(220, 252, 231, 0.8); color: #16a34a; }
         .bg-gray-soft { background-color: rgba(243, 244, 246, 0.8); color: #4b5563; }
+        .bg-emerald-soft { background-color: rgba(209, 250, 229, 0.8); color: #059669; }
     </style>
 </head>
 <body class="min-h-screen py-12 px-4 sm:px-6 md:py-24 flex flex-col items-center selection:bg-blue-500 selection:text-white relative z-0">
 
-    <!-- Dinamik Android 17 / iOS 26 Aurora Arka Plan -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-[#f4f6f9]">
         <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-blue-200/50 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
         <div class="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-purple-200/50 rounded-full mix-blend-multiply filter blur-[100px] animate-blob" style="animation-delay: 2s;"></div>
@@ -108,29 +119,32 @@
 
     <main class="w-full max-w-3xl space-y-8">
 
-        <!-- Başlık Alanı -->
         <header class="text-center mb-14 pt-4 animate-fade-up">
             <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-500 mb-3 drop-shadow-sm pb-4 leading-normal">
                 Erdoğan Demirtaş
             </h1>
         </header>
 
-        <!-- Bento Grid Düzeni -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-            <!-- Hakkımda Widget -->
             <section class="glass-card md:col-span-2 animate-fade-up delay-100">
                 <h2 class="text-[11px] font-bold text-synthesis-muted uppercase tracking-[0.2em] mb-4 ml-1 opacity-70" data-en="About Me">Hakkımda</h2>
-                <p class="text-synthesis-text text-[18px] sm:text-[20px] leading-relaxed font-medium" data-en="I am preparing for the <strong class='font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60'>AGS (Academy Entrance Exam)</strong> to become a teacher. I love learning, exploring, and sharing the knowledge I've gained.">
-                    Öğretmen olmak için <strong class="font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60">AGS (Akademi Giriş Sınavı)</strong> sınavına hazırlanıyorum. Öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
+                <p class="text-synthesis-text text-[18px] sm:text-[20px] leading-relaxed font-medium" data-en="I am preparing for the <strong class='font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60'>AGS (Academy Entrance Exam)</strong> to become a teacher. I also develop Android applications. I love learning, exploring, and sharing the knowledge I've gained.">
+                    Öğretmen olmak için <strong class="font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60">AGS (Akademi Giriş Sınavı)</strong> sınavına hazırlanıyorum. Aynı zamanda Android uygulamaları geliştiriyorum. Öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
                 </p>
             </section>
 
-            <!-- İlgi Alanları Widget -->
             <section class="glass-card md:col-span-2 animate-fade-up delay-200">
                 <h2 class="text-[11px] font-bold text-synthesis-muted uppercase tracking-[0.2em] mb-8 ml-1 opacity-70" data-en="My Interests">İlgi Alanlarım</h2>
                 
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-10 gap-x-4">
+                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
+                        <div class="w-16 h-16 rounded-full bg-emerald-soft flex items-center justify-center shadow-[0_4px_16px_rgba(5,150,105,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
+                            <i class="fab fa-android text-2xl"></i>
+                        </div>
+                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Android Dev">Android Geliştirme</span>
+                    </div>
+
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-red-soft flex items-center justify-center shadow-[0_4px_16px_rgba(220,38,38,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
                             <i class="fas fa-film text-2xl"></i>
@@ -160,13 +174,6 @@
                     </div>
 
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
-                        <div class="w-16 h-16 rounded-full bg-green-soft flex items-center justify-center shadow-[0_4px_16px_rgba(22,163,74,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-leaf text-2xl"></i>
-                        </div>
-                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Hiking">Doğa Yürüyüşü</span>
-                    </div>
-
-                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-gray-soft flex items-center justify-center shadow-[0_4px_16px_rgba(75,85,99,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
                             <i class="fab fa-wikipedia-w text-2xl"></i>
                         </div>
@@ -175,12 +182,22 @@
                 </div>
             </section>
 
-            <!-- İletişim & Sosyal Medya -->
             <section class="md:col-span-2 mt-4 animate-fade-up delay-300">
                 <h2 class="text-[11px] font-bold text-synthesis-muted uppercase tracking-[0.2em] mb-5 ml-1 opacity-70" data-en="Links">Bağlantılar</h2>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     
+                    <!-- Eklenen Google Play Linki -->
+                    <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer md:col-span-2">
+                        <div class="w-14 h-14 rounded-full bg-[#01875F] text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
+                            <i class="fab fa-google-play text-xl"></i>
+                        </div>
+                        <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight" data-en="Google Play Developer">Google Play Geliştirici Profilim</div>
+                        <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-[#E6F4EA] group-hover:text-[#01875F] transition-colors">
+                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                        </div>
+                    </a>
+
                     <a href="mailto:erdogandemirtas@outlook.com" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
                             <i class="fas fa-envelope text-xl"></i>
@@ -230,27 +247,18 @@
 
         </div>
         
-        <footer class="text-center pt-12 pb-6 animate-fade-up delay-300">
+        <footer class="text-center pt-12 pb-6 animate-fade-up delay-300 flex flex-col gap-2">
             <p class="text-[14px] font-bold text-synthesis-muted opacity-60 tracking-wide" data-en="Design &copy; 2026 Erdoğan Demirtaş">Tasarım &copy; 2026 Erdoğan Demirtaş</p>
         </footer>
 
     </main>
 
-    <!-- Language Auto-Detection Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Get user's browser language
             const userLang = navigator.language || navigator.userLanguage;
-            
-            // Check if language is NOT Turkish ('tr')
             if (!userLang.toLowerCase().startsWith('tr')) {
-                // Change HTML lang attribute
                 document.documentElement.lang = 'en';
-                
-                // Find all elements with an English translation data attribute
                 const translatableElements = document.querySelectorAll('[data-en]');
-                
-                // Replace the inner HTML with the English content
                 translatableElements.forEach(el => {
                     el.innerHTML = el.getAttribute('data-en');
                 });
