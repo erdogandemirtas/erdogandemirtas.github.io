@@ -8,7 +8,7 @@
     <title>Erdoğan Demirtaş</title>
     <meta name="description" content="Erdoğan Demirtaş'ın kişisel web sitesi ve portfolyosu.">
     
-    <!-- Favicon (Kendi ikonunu root dizine favicon.png olarak eklemelisin) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Open Graph / Sosyal Medya Paylaşım Etiketleri -->
@@ -16,7 +16,6 @@
     <meta property="og:url" content="https://erdogandemirtas.github.io/">
     <meta property="og:title" content="Erdoğan Demirtaş">
     <meta property="og:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
-    <!-- Aşağıdaki görseli sitene ekleyip linkini güncelleyebilirsin -->
     <meta property="og:image" content="https://erdogandemirtas.github.io/profile-preview.png"> 
 
     <!-- Tailwind CSS -->
@@ -37,7 +36,8 @@
                         }
                     },
                     animation: {
-                        'blob': 'blob 10s infinite',
+                        /* Animasyon süresini 10s'den 20s'ye çıkardık, daha yumuşak ve az yorucu oldu */
+                        'blob': 'blob 20s infinite',
                     },
                     keyframes: {
                         blob: {
@@ -73,33 +73,65 @@
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
 
+        /* Mobil İçin Optimize Edilmiş Glass Card */
         .glass-card {
             background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            /* Mobilde blur seviyesi düşürüldü (Performans artışı) */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 36px;
-            padding: 1.75rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            border-radius: 28px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            
+            /* Donanım İvmelendirmesi (Kasmayı engeller) */
             transform: translateZ(0);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-4px) scale(1.01) translateZ(0);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.75);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .pill-link {
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             border-radius: 9999px;
+            /* Donanım İvmelendirmesi */
             transform: translateZ(0);
+            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
         }
         
-        .pill-link:hover {
-            transform: scale(1.03) translateZ(0);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+        /* Sadece fare destekleyen cihazlarda (Desktop) Hover aktif olsun. Mobilde takılmayı önler. */
+        @media (hover: hover) {
+            .glass-card:hover {
+                transform: translateY(-4px) scale(1.01) translateZ(0);
+                box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+                background: rgba(255, 255, 255, 0.75);
+            }
+            .pill-link:hover {
+                transform: scale(1.03) translateZ(0);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+            }
+        }
+
+        /* Tablet ve Masaüstü cihazlar için orjinal yüksek değerler */
+        @media (min-width: 768px) {
+            .glass-card {
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border-radius: 36px;
+                padding: 1.75rem;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        /* PERFORMANS: Mobil cihazlarda arka plan animasyonunu tamamen durdur. (En önemli kural) */
+        @media (max-width: 767px) {
+            .animate-blob {
+                animation: none !important;
+                /* Animasyon kapalıyken pürüzsüz görünmesi için opacity'i biraz artırabiliriz */
+                opacity: 0.8 !important; 
+            }
         }
 
         .bg-red-soft { background-color: rgba(254, 226, 226, 0.8); color: #dc2626; }
