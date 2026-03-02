@@ -9,7 +9,7 @@
     <meta name="description" content="Erdoğan Demirtaş'ın kişisel web sitesi ve portfolyosu.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Open Graph / Sosyal Medya Paylaşım Etiketleri -->
     <meta property="og:type" content="website">
@@ -18,8 +18,14 @@
     <meta property="og:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
     <meta property="og:image" content="https://erdogandemirtas.github.io/profile-preview.png"> 
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Erdoğan Demirtaş">
+    <meta name="twitter:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
+    <meta name="twitter:image" content="https://erdogandemirtas.github.io/profile-preview.png">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script>
@@ -27,7 +33,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        sans: ['"Inter var"', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
                     },
                     colors: {
                         synthesis: {
@@ -57,6 +63,10 @@
             color: #111827;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        .bg-canvas {
+            background-color: #f4f6f9;
         }
 
         @keyframes fadeUp {
@@ -100,6 +110,16 @@
             -webkit-transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
         }
+
+        a:focus-visible {
+            outline: 3px solid #2563eb;
+            outline-offset: 3px;
+            border-radius: 14px;
+        }
+
+        .pill-link:focus-visible {
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+        }
         
         /* Sadece fare destekleyen cihazlarda (Desktop) Hover aktif olsun. Mobilde takılmayı önler. */
         @media (hover: hover) {
@@ -141,11 +161,46 @@
         .bg-green-soft { background-color: rgba(220, 252, 231, 0.8); color: #16a34a; }
         .bg-gray-soft { background-color: rgba(243, 244, 246, 0.8); color: #4b5563; }
         .bg-emerald-soft { background-color: rgba(209, 250, 229, 0.8); color: #059669; }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0b1220;
+                color: #e5e7eb;
+            }
+
+            .bg-canvas {
+                background-color: #0b1220;
+            }
+
+            .glass-card {
+                background: rgba(17, 24, 39, 0.62);
+                border: 1px solid rgba(148, 163, 184, 0.25);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+            }
+
+            .pill-link {
+                background: rgba(17, 24, 39, 0.65) !important;
+                border-color: rgba(148, 163, 184, 0.24) !important;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .text-synthesis-text {
+                color: #e5e7eb !important;
+            }
+
+            .text-synthesis-muted {
+                color: #9ca3af !important;
+            }
+
+            header h1 {
+                background-image: linear-gradient(135deg, #f9fafb, #94a3b8);
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen py-12 px-4 sm:px-6 md:py-24 flex flex-col items-center selection:bg-blue-500 selection:text-white relative z-0">
 
-    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-[#f4f6f9]">
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-canvas">
         <div class="absolute top-[-20%] left-[-20%] w-[80vw] h-[80vw] rounded-full animate-blob opacity-70" 
              style="background: radial-gradient(circle, rgba(191,219,254,0.8) 0%, rgba(191,219,254,0) 70%); will-change: transform;"></div>
         
@@ -162,6 +217,9 @@
             <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-500 mb-3 drop-shadow-sm pb-4 leading-normal">
                 Erdoğan Demirtaş
             </h1>
+            <p class="text-synthesis-muted text-[15px] sm:text-[16px] font-medium opacity-85" data-en="Android Developer • AGS Candidate • Lifelong Learner">
+                Android Geliştirici • AGS Adayı • Sürekli Öğrenen
+            </p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -226,7 +284,7 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     
-                    <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer md:col-span-2">
+                    <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play geliştirici profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer md:col-span-2">
                         <div class="w-14 h-14 rounded-full bg-[#01875F] text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
                             <i class="fab fa-google-play text-xl"></i>
                         </div>
@@ -236,7 +294,7 @@
                         </div>
                     </a>
 
-                    <a href="mailto:erdogandemirtas@outlook.com" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
+                    <a href="mailto:erdogandemirtas@outlook.com" aria-label="E-posta gönder" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
                             <i class="fas fa-envelope text-xl"></i>
                         </div>
@@ -246,7 +304,7 @@
                         </div>
                     </a>
 
-                    <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
+                    <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
                             <i class="fab fa-instagram text-xl"></i>
                         </div>
@@ -256,7 +314,7 @@
                         </div>
                     </a>
 
-                    <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
+                    <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop bağlantı koleksiyonunu aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-blue-400 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
                             <i class="fas fa-droplet text-xl"></i>
                         </div>
@@ -266,7 +324,7 @@
                         </div>
                     </a>
 
-                    <a href="https://letterboxd.com/lyriswen/" target="_blank" rel="noopener noreferrer" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
+                    <a href="https://letterboxd.com/lyriswen/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-[#2c3440] text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
                             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="5.5" cy="12" r="4.5" fill="#00e054"/>
