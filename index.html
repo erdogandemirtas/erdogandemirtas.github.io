@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- SEO ve Meta Açıklamaları -->
     <title>Erdoğan Demirtaş</title>
     <meta name="description" content="Erdoğan Demirtaş'ın kişisel web sitesi ve portfolyosu.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="Erdoğan Demirtaş">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+    <link rel="canonical" href="https://erdogandemirtas.github.io/">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://rsms.me" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
     <!-- Open Graph / Sosyal Medya Paylaşım Etiketleri -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://erdogandemirtas.github.io/">
     <meta property="og:title" content="Erdoğan Demirtaş">
     <meta property="og:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
-    <meta property="og:image" content="https://erdogandemirtas.github.io/profile-preview.png"> 
+    <meta property="og:image" content="https://erdogandemirtas.github.io/profile-preview.png">
+    <meta property="og:locale" content="tr_TR">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Erdoğan Demirtaş">
@@ -69,6 +79,14 @@
             background-color: #f4f6f9;
         }
 
+        .text-synthesis-text {
+            color: #111827;
+        }
+
+        .text-synthesis-muted {
+            color: #4b5563;
+        }
+
         @keyframes fadeUp {
             0% { opacity: 0; transform: translateY(24px) scale(0.98); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -93,7 +111,9 @@
             border-radius: 28px;
             padding: 1.5rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 500px;
             
             /* Donanım İvmelendirmesi (Kasmayı engeller) */
             transform: translateZ(0);
@@ -103,12 +123,30 @@
         }
 
         .pill-link {
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             border-radius: 9999px;
             /* Donanım İvmelendirmesi */
             transform: translateZ(0);
             -webkit-transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .animate-fade-up {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .animate-blob {
+                animation: none !important;
+            }
         }
 
         a:focus-visible {
@@ -173,9 +211,11 @@
             }
 
             .glass-card {
-                background: rgba(17, 24, 39, 0.62);
+                background: rgba(11, 18, 32, 0.84);
                 border: 1px solid rgba(148, 163, 184, 0.25);
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
             }
 
             .pill-link {
@@ -185,7 +225,7 @@
             }
 
             .text-synthesis-text {
-                color: #e5e7eb !important;
+                color: #f3f4f6 !important;
             }
 
             .text-synthesis-muted {
@@ -194,6 +234,12 @@
 
             header h1 {
                 background-image: linear-gradient(135deg, #f9fafb, #94a3b8);
+            }
+
+            .about-emphasis {
+                color: #f8fafc !important;
+                background-color: rgba(30, 41, 59, 0.62) !important;
+                border-color: rgba(148, 163, 184, 0.35) !important;
             }
         }
     </style>
@@ -223,8 +269,8 @@
 
             <section class="glass-card md:col-span-2 animate-fade-up delay-100">
                 <h2 class="text-[11px] font-bold text-synthesis-muted uppercase tracking-[0.2em] mb-4 ml-1 opacity-70" data-en="About Me">Hakkımda</h2>
-                <p class="text-synthesis-text text-[18px] sm:text-[20px] leading-relaxed font-medium" data-en="I am preparing for the <strong class='font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60'>AGS (Academy Entrance Exam)</strong> to become a teacher. I also develop Android applications. I love learning, exploring, and sharing the knowledge I've gained.">
-                    Öğretmen olmak için <strong class="font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60">AGS (Akademi Giriş Sınavı)</strong> sınavına hazırlanıyorum. Aynı zamanda Android uygulamaları geliştiriyorum. Öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
+                <p class="text-synthesis-text text-[18px] sm:text-[20px] leading-relaxed font-medium" data-en="I am preparing for the <strong class='about-emphasis font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60'>AGS (Academy Entrance Exam)</strong> to become a teacher. I also develop Android applications. I love learning, exploring, and sharing the knowledge I've gained.">
+                    Öğretmen olmak için <strong class="about-emphasis font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60">AGS (Akademi Giriş Sınavı)</strong> sınavına hazırlanıyorum. Aynı zamanda Android uygulamaları geliştiriyorum. Öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
                 </p>
             </section>
 
@@ -234,42 +280,42 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-10 gap-x-4">
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-emerald-soft flex items-center justify-center shadow-[0_4px_16px_rgba(5,150,105,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fab fa-android text-2xl"></i>
+                            <i class="fab fa-android text-2xl" aria-hidden="true"></i>
                         </div>
                         <span class="text-[15px] font-semibold text-synthesis-text" data-en="Android Dev">Android Geliştirme</span>
                     </div>
 
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-red-soft flex items-center justify-center shadow-[0_4px_16px_rgba(220,38,38,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-film text-2xl"></i>
+                            <i class="fas fa-film text-2xl" aria-hidden="true"></i>
                         </div>
                         <span class="text-[15px] font-semibold text-synthesis-text" data-en="Movies & TV">Film & Dizi</span>
                     </div>
                     
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-purple-soft flex items-center justify-center shadow-[0_4px_16px_rgba(147,51,234,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-gamepad text-2xl"></i>
+                            <i class="fas fa-gamepad text-2xl" aria-hidden="true"></i>
                         </div>
                         <span class="text-[15px] font-semibold text-synthesis-text" data-en="Gaming">Oyun</span>
                     </div>
 
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-amber-soft flex items-center justify-center shadow-[0_4px_16px_rgba(217,119,6,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-book-open text-2xl"></i>
+                            <i class="fas fa-book-open text-2xl" aria-hidden="true"></i>
                         </div>
                         <span class="text-[15px] font-semibold text-synthesis-text" data-en="Books">Kitap</span>
                     </div>
 
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-blue-soft flex items-center justify-center shadow-[0_4px_16px_rgba(37,99,235,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-music text-2xl"></i>
+                            <i class="fas fa-music text-2xl" aria-hidden="true"></i>
                         </div>
                         <span class="text-[15px] font-semibold text-synthesis-text" data-en="Classical & Rock">Klasik & Rock</span>
                     </div>
 
                     <div class="flex flex-col items-center text-center gap-4 group cursor-default">
                         <div class="w-16 h-16 rounded-full bg-gray-soft flex items-center justify-center shadow-[0_4px_16px_rgba(75,85,99,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fab fa-wikipedia-w text-2xl"></i>
+                            <i class="fab fa-wikipedia-w text-2xl" aria-hidden="true"></i>
                         </div>
                         <span class="text-[15px] font-semibold text-synthesis-text" data-en="Wikipedia">Vikipedi</span>
                     </div>
@@ -283,41 +329,41 @@
                     
                     <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play geliştirici profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer md:col-span-2">
                         <div class="w-14 h-14 rounded-full bg-[#01875F] text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-google-play text-xl"></i>
+                            <i class="fab fa-google-play text-xl" aria-hidden="true"></i>
                         </div>
                         <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight" data-en="Google Play Developer">Google Play Geliştirici Profilim</div>
                         <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-[#E6F4EA] group-hover:text-[#01875F] transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
                         </div>
                     </a>
 
                     <a href="mailto:erdogandemirtas@outlook.com" aria-label="E-posta gönder" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fas fa-envelope text-xl"></i>
+                            <i class="fas fa-envelope text-xl" aria-hidden="true"></i>
                         </div>
                         <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight" data-en="Email">E-Posta</div>
                         <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
                         </div>
                     </a>
 
                     <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-instagram text-xl"></i>
+                            <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
                         </div>
                         <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight">Instagram</div>
                         <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-pink-100 group-hover:text-pink-600 transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
                         </div>
                     </a>
 
                     <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop bağlantı koleksiyonunu aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
                         <div class="w-14 h-14 rounded-full bg-blue-400 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fas fa-droplet text-xl"></i>
+                            <i class="fas fa-droplet text-xl" aria-hidden="true"></i>
                         </div>
                         <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight">Raindrop</div>
                         <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-blue-100 group-hover:text-blue-500 transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
                         </div>
                     </a>
 
@@ -331,7 +377,7 @@
                         </div>
                         <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight">Letterboxd</div>
                         <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-[#e6fcf0] group-hover:text-[#00e054] transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
                         </div>
                     </a>
 
