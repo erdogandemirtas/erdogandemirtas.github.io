@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +7,25 @@
     
     <!-- SEO ve Meta Açıklamaları -->
     <title>Erdoğan Demirtaş</title>
-    <meta name="description" content="Erdoğan Demirtaş'ın kişisel web sitesi ve portfolyosu.">
+    <meta name="description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Erdoğan Demirtaş">
-    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fafaf9">
     <link rel="canonical" href="https://erdogandemirtas.github.io/">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- DNS Prefetch & Preconnect (Ağ Bağlantısı Optimizasyonu) -->
     <link rel="preconnect" href="https://rsms.me" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="dns-prefetch" href="https://upload.wikimedia.org">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
-    <!-- Open Graph / Sosyal Medya Paylaşım Etiketleri -->
+    <!-- LCP (En Büyük İçerik) Ön Yüklemesi -->
+    <link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/0/04/Cyanocitta-cristata-004.jpg" fetchpriority="high">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph / Sosyal Medya -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://erdogandemirtas.github.io/">
     <meta property="og:title" content="Erdoğan Demirtaş">
@@ -33,11 +38,14 @@
     <meta name="twitter:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
     <meta name="twitter:image" content="https://erdogandemirtas.github.io/profile-preview.png">
 
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -45,17 +53,15 @@
                     fontFamily: {
                         sans: ['"Inter var"', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
                     },
-                    colors: {
-                        synthesis: {
-                            text: '#111827',
-                            muted: '#4b5563',
-                        }
-                    },
                     animation: {
-                        /* Animasyon süresini 10s'den 20s'ye çıkardık, daha yumuşak ve az yorucu oldu */
-                        'blob': 'blob 20s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'blob': 'blob 20s infinite alternate',
                     },
                     keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(16px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
                         blob: {
                             '0%': { transform: 'translate(0px, 0px) scale(1)' },
                             '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
@@ -69,329 +75,157 @@
     </script>
     <style>
         body {
-            background-color: #f8fafc;
-            color: #111827;
+            background-color: #fafaf9; /* Tailwind stone-50 */
+            color: #292524; /* Tailwind stone-800 */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        .bg-canvas {
-            background-color: #f4f6f9;
-        }
-
-        .text-synthesis-text {
-            color: #111827;
-        }
-
-        .text-synthesis-muted {
-            color: #4b5563;
-        }
-
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(24px) scale(0.98); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .animate-fade-up {
-            animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            opacity: 0;
         }
 
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
-
-        /* Mobil İçin Optimize Edilmiş Glass Card */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.65);
-            /* Mobilde blur seviyesi düşürüldü (Performans artışı) */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 28px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-            content-visibility: auto;
-            contain-intrinsic-size: 1px 500px;
-            
-            /* Donanım İvmelendirmesi (Kasmayı engeller) */
-            transform: translateZ(0);
-            -webkit-transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-
-        .pill-link {
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border-radius: 9999px;
-            /* Donanım İvmelendirmesi */
-            transform: translateZ(0);
-            -webkit-transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-
-            .animate-fade-up {
-                opacity: 1 !important;
-                transform: none !important;
-            }
-
-            .animate-blob {
-                animation: none !important;
-            }
-        }
+        
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
 
         a:focus-visible {
-            outline: 3px solid #2563eb;
-            outline-offset: 3px;
-            border-radius: 14px;
+            outline: 2px solid #78716c; 
+            outline-offset: 4px;
+            border-radius: 1rem;
         }
 
-        .pill-link:focus-visible {
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
-        }
-        
-        /* Sadece fare destekleyen cihazlarda (Desktop) Hover aktif olsun. Mobilde takılmayı önler. */
-        @media (hover: hover) {
-            .glass-card:hover {
-                transform: translateY(-4px) scale(1.01) translateZ(0);
-                box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-                background: rgba(255, 255, 255, 0.75);
-            }
-            .pill-link:hover {
-                transform: scale(1.03) translateZ(0);
-                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
-            }
-        }
-
-        /* Tablet ve Masaüstü cihazlar için orjinal yüksek değerler */
-        @media (min-width: 768px) {
-            .glass-card {
-                backdrop-filter: blur(16px);
-                -webkit-backdrop-filter: blur(16px);
-                border-radius: 36px;
-                padding: 1.75rem;
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-            }
-        }
-
-        /* PERFORMANS: Mobil cihazlarda arka plan animasyonunu tamamen durdur. (En önemli kural) */
-        @media (max-width: 767px) {
-            .animate-blob {
-                animation: none !important;
-                /* Animasyon kapalıyken pürüzsüz görünmesi için opacity'i biraz artırabiliriz */
-                opacity: 0.8 !important; 
-            }
-        }
-
-        .bg-red-soft { background-color: rgba(254, 226, 226, 0.8); color: #dc2626; }
-        .bg-purple-soft { background-color: rgba(243, 232, 255, 0.8); color: #9333ea; }
-        .bg-amber-soft { background-color: rgba(254, 243, 199, 0.8); color: #d97706; }
-        .bg-blue-soft { background-color: rgba(219, 234, 254, 0.8); color: #2563eb; }
-        .bg-green-soft { background-color: rgba(220, 252, 231, 0.8); color: #16a34a; }
-        .bg-gray-soft { background-color: rgba(243, 244, 246, 0.8); color: #4b5563; }
-        .bg-emerald-soft { background-color: rgba(209, 250, 229, 0.8); color: #059669; }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #0b1220;
-                color: #e5e7eb;
-            }
-
-            .bg-canvas {
-                background-color: #0b1220;
-            }
-
-            .glass-card {
-                background: rgba(11, 18, 32, 0.84);
-                border: 1px solid rgba(148, 163, 184, 0.25);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-            }
-
-            .pill-link {
-                background: rgba(17, 24, 39, 0.65) !important;
-                border-color: rgba(148, 163, 184, 0.24) !important;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            }
-
-            .text-synthesis-text {
-                color: #f3f4f6 !important;
-            }
-
-            .text-synthesis-muted {
-                color: #9ca3af !important;
-            }
-
-            header h1 {
-                background-image: linear-gradient(135deg, #f9fafb, #94a3b8);
-            }
-
-            .about-emphasis {
-                color: #f8fafc !important;
-                background-color: rgba(30, 41, 59, 0.62) !important;
-                border-color: rgba(148, 163, 184, 0.35) !important;
-            }
+        .noise-bg::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
     </style>
 </head>
-<body class="min-h-screen py-12 px-4 sm:px-6 md:py-24 flex flex-col items-center selection:bg-blue-500 selection:text-white relative z-0">
+<body class="min-h-screen flex flex-col items-center py-16 px-5 sm:px-8 selection:bg-stone-300 selection:text-stone-900 noise-bg relative overflow-x-hidden">
 
-    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-canvas">
-        <div class="absolute top-[-20%] left-[-20%] w-[80vw] h-[80vw] rounded-full animate-blob opacity-70" 
-             style="background: radial-gradient(circle, rgba(191,219,254,0.8) 0%, rgba(191,219,254,0) 70%); will-change: transform;"></div>
-        
-        <div class="absolute top-[-20%] right-[-20%] w-[80vw] h-[80vw] rounded-full animate-blob opacity-70" 
-             style="background: radial-gradient(circle, rgba(233,213,255,0.8) 0%, rgba(233,213,255,0) 70%); animation-delay: 2s; will-change: transform;"></div>
-        
-        <div class="absolute bottom-[-30%] left-[10%] w-[90vw] h-[90vw] rounded-full animate-blob opacity-70" 
-             style="background: radial-gradient(circle, rgba(209,250,229,0.8) 0%, rgba(209,250,229,0) 70%); animation-delay: 4s; will-change: transform;"></div>
+    <!-- Gemini Stili Dinamik Aura Arka Planı -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10 flex items-center justify-center">
+        <!-- Mavi Aura -->
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob bg-blue-100/80"></div>
+        <!-- Mor/Pembe Aura -->
+        <div class="absolute top-[10%] right-[-10%] w-[50vw] h-[50vw] rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob animation-delay-2000 bg-purple-100/80"></div>
+        <!-- Zümrüt Aura -->
+        <div class="absolute bottom-[-10%] left-[20%] w-[60vw] h-[60vw] rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-blob animation-delay-4000 bg-emerald-100/80"></div>
     </div>
 
-    <main class="w-full max-w-3xl space-y-8">
+    <main class="w-full max-w-2xl flex flex-col gap-12 sm:gap-16 z-10">
 
-        <header class="text-center mb-14 pt-4 animate-fade-up">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-gray-500 mb-3 drop-shadow-sm pb-4 leading-normal">
+        <!-- Başlık Bölümü -->
+        <header class="animate-fade-in-up opacity-0 flex flex-col gap-6">
+            <!-- LCP & CLS Optimize Edilmiş Görsel (Buzlu Cam Çerçeve) -->
+            <div class="group relative w-full bg-white/60 backdrop-blur-xl p-2 sm:p-3 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cyanocitta-cristata-004.jpg" 
+                     alt="Mavi Alakarga Tablosu" 
+                     title="Fotoğraf: Mdf, CC BY-SA 3.0, Wikimedia Commons" 
+                     class="w-full h-64 sm:h-96 object-cover rounded-[1.25rem]" 
+                     width="800" height="400" 
+                     fetchpriority="high" decoding="sync"
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x400?text=Görsel+Bulunamadı&font=lora';">
+                
+                <div class="absolute inset-0 flex items-end justify-center pb-5 sm:pb-7 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <span class="bg-stone-900/75 backdrop-blur-md text-white/90 text-[11px] sm:text-xs px-4 py-1.5 rounded-full shadow-sm font-medium tracking-wide" data-en="Photo: Mdf, CC BY-SA 3.0, Wikimedia Commons">
+                        Fotoğraf: Mdf, CC BY-SA 3.0
+                    </span>
+                </div>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight px-2 sm:px-4 text-transparent bg-clip-text bg-gradient-to-br from-stone-900 via-stone-700 to-stone-500 leading-tight">
                 Erdoğan Demirtaş
             </h1>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Hakkımda Bölümü -->
+        <section class="animate-fade-in-up opacity-0 delay-100 flex flex-col gap-4">
+            <h2 class="text-sm font-semibold uppercase tracking-widest text-stone-400" data-en="About">
+                Hakkımda
+            </h2>
+            <p class="text-[16px] sm:text-[18px] leading-relaxed text-stone-700" data-en="I am preparing for the AGS to become a teacher. I also develop Android applications. I love learning, exploring, and sharing the knowledge I've gained.">
+                Öğretmen olmak için AGS'ye hazırlanıyorum. Aynı zamanda Android uygulamaları geliştiriyorum. Öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
+            </p>
+        </section>
 
-            <section class="glass-card md:col-span-2 animate-fade-up delay-100">
-                <h2 class="text-[11px] font-bold text-synthesis-muted uppercase tracking-[0.2em] mb-4 ml-1 opacity-70" data-en="About Me">Hakkımda</h2>
-                <p class="text-synthesis-text text-[18px] sm:text-[20px] leading-relaxed font-medium" data-en="I am preparing for the <strong class='about-emphasis font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60'>AGS (Academy Entrance Exam)</strong> to become a teacher. I also develop Android applications. I love learning, exploring, and sharing the knowledge I've gained.">
-                    Öğretmen olmak için <strong class="about-emphasis font-bold text-black bg-white/50 px-2 py-0.5 rounded-lg border border-white/60">AGS (Akademi Giriş Sınavı)</strong> sınavına hazırlanıyorum. Aynı zamanda Android uygulamaları geliştiriyorum. Öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
-                </p>
-            </section>
-
-            <section class="glass-card md:col-span-2 animate-fade-up delay-200">
-                <h2 class="text-[11px] font-bold text-synthesis-muted uppercase tracking-[0.2em] mb-8 ml-1 opacity-70" data-en="My Interests">İlgi Alanlarım</h2>
+        <!-- Bağlantılar Bölümü -->
+        <section class="animate-fade-in-up opacity-0 delay-200 flex flex-col gap-4">
+            <h2 class="text-sm font-semibold uppercase tracking-widest text-stone-400" data-en="Connect">
+                Bağlantılar
+            </h2>
+            <div class="flex flex-col gap-3">
                 
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-10 gap-x-4">
-                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
-                        <div class="w-16 h-16 rounded-full bg-emerald-soft flex items-center justify-center shadow-[0_4px_16px_rgba(5,150,105,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fab fa-android text-2xl" aria-hidden="true"></i>
+                <!-- Cam Efektli (Glassmorphism) Bağlantı Kartları -->
+                <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play Geliştirici Profilim" class="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white hover:border-white hover:bg-white/90 transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-0.5">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-emerald-100/50 text-emerald-600 flex items-center justify-center transition-colors">
+                            <i class="fab fa-google-play text-lg" aria-hidden="true"></i>
                         </div>
-                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Android Dev">Android Geliştirme</span>
+                        <span class="font-semibold text-stone-800 group-hover:text-stone-900 transition-colors" data-en="Google Play Developer">Google Play Geliştirici</span>
                     </div>
+                    <i class="fas fa-arrow-right -rotate-45 text-stone-400 group-hover:text-stone-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" aria-hidden="true"></i>
+                </a>
 
-                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
-                        <div class="w-16 h-16 rounded-full bg-red-soft flex items-center justify-center shadow-[0_4px_16px_rgba(220,38,38,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-film text-2xl" aria-hidden="true"></i>
+                <a href="mailto:erdogandemirtas@outlook.com" aria-label="Bana e-posta gönderin" class="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white hover:border-white hover:bg-white/90 transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-0.5">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-100/50 text-blue-600 flex items-center justify-center transition-colors">
+                            <i class="fas fa-envelope text-lg" aria-hidden="true"></i>
                         </div>
-                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Movies & TV">Film & Dizi</span>
+                        <span class="font-semibold text-stone-800 group-hover:text-stone-900 transition-colors" data-en="Email">E-Posta Gönder</span>
                     </div>
-                    
-                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
-                        <div class="w-16 h-16 rounded-full bg-purple-soft flex items-center justify-center shadow-[0_4px_16px_rgba(147,51,234,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-gamepad text-2xl" aria-hidden="true"></i>
-                        </div>
-                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Gaming">Oyun</span>
-                    </div>
+                    <i class="fas fa-arrow-right -rotate-45 text-stone-400 group-hover:text-stone-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" aria-hidden="true"></i>
+                </a>
 
-                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
-                        <div class="w-16 h-16 rounded-full bg-amber-soft flex items-center justify-center shadow-[0_4px_16px_rgba(217,119,6,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-book-open text-2xl" aria-hidden="true"></i>
+                <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profilim" class="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white hover:border-white hover:bg-white/90 transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-0.5">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-pink-100/50 text-pink-600 flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram text-lg" aria-hidden="true"></i>
                         </div>
-                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Books">Kitap</span>
+                        <span class="font-semibold text-stone-800 group-hover:text-stone-900 transition-colors">Instagram</span>
                     </div>
+                    <i class="fas fa-arrow-right -rotate-45 text-stone-400 group-hover:text-stone-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" aria-hidden="true"></i>
+                </a>
 
-                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
-                        <div class="w-16 h-16 rounded-full bg-blue-soft flex items-center justify-center shadow-[0_4px_16px_rgba(37,99,235,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fas fa-music text-2xl" aria-hidden="true"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop Koleksiyonum" class="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white hover:border-white hover:bg-white/90 transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-0.5">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-droplet text-cyan-500 text-lg" aria-hidden="true"></i>
+                            <span class="font-semibold text-stone-800 group-hover:text-stone-900 transition-colors">Raindrop</span>
                         </div>
-                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Classical & Rock">Klasik & Rock</span>
-                    </div>
-
-                    <div class="flex flex-col items-center text-center gap-4 group cursor-default">
-                        <div class="w-16 h-16 rounded-full bg-gray-soft flex items-center justify-center shadow-[0_4px_16px_rgba(75,85,99,0.15)] group-hover:scale-110 transition-transform duration-500 ease-out border border-white/60">
-                            <i class="fab fa-wikipedia-w text-2xl" aria-hidden="true"></i>
-                        </div>
-                        <span class="text-[15px] font-semibold text-synthesis-text" data-en="Wikipedia">Vikipedi</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="md:col-span-2 mt-4 animate-fade-up delay-300">
-                <h2 class="text-[11px] font-bold text-synthesis-muted uppercase tracking-[0.2em] mb-5 ml-1 opacity-70" data-en="Links">Bağlantılar</h2>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    
-                    <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play geliştirici profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer md:col-span-2">
-                        <div class="w-14 h-14 rounded-full bg-[#01875F] text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-google-play text-xl" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight" data-en="Google Play Developer">Google Play Geliştirici Profilim</div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-[#E6F4EA] group-hover:text-[#01875F] transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
-                        </div>
+                        <i class="fas fa-arrow-right -rotate-45 text-stone-400 group-hover:text-stone-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-sm" aria-hidden="true"></i>
                     </a>
 
-                    <a href="mailto:erdogandemirtas@outlook.com" aria-label="E-posta gönder" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
-                        <div class="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fas fa-envelope text-xl" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight" data-en="Email">E-Posta</div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
-                        </div>
-                    </a>
-
-                    <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
-                        <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight">Instagram</div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-pink-100 group-hover:text-pink-600 transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
-                        </div>
-                    </a>
-
-                    <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop bağlantı koleksiyonunu aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
-                        <div class="w-14 h-14 rounded-full bg-blue-400 text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <i class="fas fa-droplet text-xl" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight">Raindrop</div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-blue-100 group-hover:text-blue-500 transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
-                        </div>
-                    </a>
-
-                    <a href="https://letterboxd.com/lyriswen/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd profilini aç" class="pill-link flex items-center p-2.5 pr-5 bg-white/70 backdrop-blur-xl border border-white/80 shadow-sm group cursor-pointer">
-                        <div class="w-14 h-14 rounded-full bg-[#2c3440] text-white flex items-center justify-center mr-4 shadow-md group-hover:scale-105 transition-transform duration-300">
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <a href="https://letterboxd.com/lyriswen/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd Profilim" class="group relative flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white hover:border-white hover:bg-white/90 transition-all duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-0.5">
+                        <div class="flex items-center gap-3">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="opacity-90">
                                 <circle cx="5.5" cy="12" r="4.5" fill="#00e054"/>
                                 <circle cx="12" cy="12" r="4.5" fill="#ff8000"/>
                                 <circle cx="18.5" cy="12" r="4.5" fill="#40bcf4"/>
                             </svg>
+                            <span class="font-semibold text-stone-800 group-hover:text-stone-900 transition-colors">Letterboxd</span>
                         </div>
-                        <div class="flex-1 font-bold text-[17px] text-synthesis-text tracking-tight">Letterboxd</div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100/80 flex items-center justify-center text-synthesis-muted group-hover:bg-[#e6fcf0] group-hover:text-[#00e054] transition-colors">
-                            <i class="fas fa-arrow-right -rotate-45 text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"></i>
-                        </div>
+                        <i class="fas fa-arrow-right -rotate-45 text-stone-400 group-hover:text-stone-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-sm" aria-hidden="true"></i>
                     </a>
-
                 </div>
-            </section>
 
-        </div>
-        
-        <footer class="text-center pt-12 pb-6 animate-fade-up delay-300 flex flex-col gap-2">
-            <p class="text-[14px] font-bold text-synthesis-muted opacity-60 tracking-wide" data-en="Design &copy; 2026 Erdoğan Demirtaş">Tasarım &copy; 2026 Erdoğan Demirtaş</p>
+            </div>
+        </section>
+
+        <!-- Alt Bilgi (Footer) -->
+        <footer class="animate-fade-in-up opacity-0 delay-300 pt-8 mt-4 border-t border-stone-200 flex flex-col items-center gap-2 relative z-10">
+            <p class="text-[13px] text-stone-500 font-medium" data-en="&copy; 2026 Erdoğan Demirtaş. All rights reserved.">
+                &copy; 2026 Erdoğan Demirtaş. Tüm hakları saklıdır.
+            </p>
         </footer>
 
     </main>
 
+    <!-- Dil Çeviri Scripti -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const userLang = navigator.language || navigator.userLanguage;
