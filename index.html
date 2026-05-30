@@ -19,8 +19,8 @@
     <link rel="dns-prefetch" href="https://upload.wikimedia.org">
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
-    <!-- LCP (En Büyük İçerik) Ön Yüklemesi -->
-    <link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/0/04/Cyanocitta-cristata-004.jpg" fetchpriority="high">
+    <!-- LCP (En Büyük İçerik) Ön Yüklemesi (yerel kopya) -->
+    <link rel="preload" as="image" href="assets/bird-full.jpg" fetchpriority="high">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -30,7 +30,7 @@
     <meta property="og:url" content="https://erdogandemirtas.github.io/">
     <meta property="og:title" content="Erdoğan Demirtaş">
     <meta property="og:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
-    <meta property="og:image" content="https://erdogandemirtas.github.io/profile-preview.png">
+        <meta property="og:image" content="https://erdogandemirtas.github.io/assets/og-1200x630.webp">
     <meta property="og:locale" content="tr_TR">
 
     <!-- Google Fonts & Material Symbols (MD3 Standartları) -->
@@ -77,6 +77,14 @@
                 }
             }
         }
+    </script>
+    <!-- Google Analytics (GA4) - Replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
     </script>
     <style>
         body {
@@ -130,13 +138,16 @@
         <header class="animate-fade-in-up opacity-0 flex flex-col gap-4 mb-2">
             <!-- MD3 Image Card -->
             <div class="w-full h-56 sm:h-80 rounded-[32px] overflow-hidden relative bg-md-surfaceVariant group">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cyanocitta-cristata-004.jpg" 
-                     alt="Mavi Alakarga" 
-                     title="Fotoğraf: Mdf, CC BY-SA 3.0, Wikimedia Commons" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                     width="800" height="400" 
-                     fetchpriority="high" decoding="sync"
+                    <picture>
+                        <source type="image/webp" srcset="assets/bird-480.webp 480w, assets/bird-800.webp 800w, assets/bird-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 680px">
+                        <img src="assets/bird-1200.jpg"
+                     alt="Mavi Alakarga"
+                     title="Fotoğraf: Mdf, CC BY-SA 3.0, Wikimedia Commons"
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                     width="1200" height="800"
+                     loading="lazy" decoding="async"
                      onerror="this.onerror=null;this.src='https://placehold.co/800x400?text=Görsel+Bulunamadı&font=roboto';">
+                    </picture>
                 
                 <!-- Tooltip Overlay -->
                 <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
