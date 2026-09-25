@@ -16,26 +16,56 @@
     <!-- DNS Prefetch & Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://upload.wikimedia.org">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
-    <!-- LCP (En Büyük İçerik) Ön Yüklemesi (yerel kopya) -->
-    <link rel="preload" as="image" href="assets/bird-full.jpg" fetchpriority="high">
+    <!-- LCP (En Büyük İçerik) Ön Yüklemesi (Responsive WebP) -->
+    <link rel="preload" as="image" href="assets/bird-1200.webp" imagesrcset="assets/bird-480.webp 480w, assets/bird-800.webp 800w, assets/bird-1200.webp 1200w" imagesizes="(max-width: 640px) 100vw, 680px" type="image/webp" fetchpriority="high">
 
-    <!-- Favicon -->
+    <!-- Favicon & PWA Manifest -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
 
-    <!-- Open Graph / Sosyal Medya -->
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://erdogandemirtas.github.io/">
+    <meta property="og:site_name" content="Erdoğan Demirtaş">
     <meta property="og:title" content="Erdoğan Demirtaş">
     <meta property="og:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
-        <meta property="og:image" content="https://erdogandemirtas.github.io/assets/og-1200x630.webp">
+    <meta property="og:image" content="https://erdogandemirtas.github.io/assets/og-1200x630.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="tr_TR">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://erdogandemirtas.github.io/">
+    <meta name="twitter:title" content="Erdoğan Demirtaş">
+    <meta name="twitter:description" content="Erdoğan Demirtaş'ın kişisel web sitesi.">
+    <meta name="twitter:image" content="https://erdogandemirtas.github.io/assets/og-1200x630.png">
+
+    <!-- Yapılandırılmış Veri (JSON-LD / Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Erdoğan Demirtaş",
+      "url": "https://erdogandemirtas.github.io/",
+      "image": "https://erdogandemirtas.github.io/assets/bird-1200.jpg",
+      "sameAs": [
+        "https://play.google.com/store/apps/dev?id=7093328901397114353",
+        "https://www.instagram.com/_erdogandemirtas",
+        "https://letterboxd.com/lyriswen/",
+        "https://erdogan.raindrop.page/"
+      ],
+      "jobTitle": "Android Developer",
+      "knowsAbout": ["Android Development", "Mobile Applications", "Kotlin", "Java"]
+    }
+    </script>
 
     <!-- Google Fonts & Material Symbols (MD3 Standartları) -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -78,14 +108,23 @@
             }
         }
     </script>
-    <!-- Google Analytics (GA4) - Replace G-XXXXXXXXXX with your Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+
+    <!-- Google Analytics (GA4) - Gerçek ID eklendiğinde otomatik aktifleşir -->
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+        const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Gerçek GA4 Ölçüm Kimliğinizi buraya giriniz
+        if (GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
+            const gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+            document.head.appendChild(gaScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', GA_MEASUREMENT_ID);
+        }
     </script>
+
     <style>
         body {
             background-color: #FDFBFF;
@@ -138,16 +177,18 @@
         <header class="animate-fade-in-up opacity-0 flex flex-col gap-4 mb-2">
             <!-- MD3 Image Card -->
             <div class="w-full h-56 sm:h-80 rounded-[32px] overflow-hidden relative bg-md-surfaceVariant group">
-                    <picture>
-                        <source type="image/webp" srcset="assets/bird-480.webp 480w, assets/bird-800.webp 800w, assets/bird-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 680px">
-                        <img src="assets/bird-1200.jpg"
-                     alt="Mavi Alakarga"
-                     title="Fotoğraf: Mdf, CC BY-SA 3.0, Wikimedia Commons"
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                     width="1200" height="800"
-                     loading="lazy" decoding="async"
-                     onerror="this.onerror=null;this.src='https://placehold.co/800x400?text=Görsel+Bulunamadı&font=roboto';">
-                    </picture>
+                <picture>
+                    <source type="image/webp" srcset="assets/bird-480.webp 480w, assets/bird-800.webp 800w, assets/bird-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 680px">
+                    <img src="assets/bird-1200.jpg"
+                         alt="Mavi Alakarga"
+                         data-en-alt="Blue Jay"
+                         title="Fotoğraf: Mdf, CC BY-SA 3.0, Wikimedia Commons"
+                         data-en-title="Photo: Mdf, CC BY-SA 3.0, Wikimedia Commons"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                         width="1200" height="800"
+                         loading="eager" fetchpriority="high" decoding="async"
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x400?text=Görsel+Bulunamadı&font=roboto';">
+                </picture>
                 
                 <!-- Tooltip Overlay -->
                 <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -181,15 +222,17 @@
 
         <!-- MD3 Bağlantılar Bölümü (List Elements / Interactive Cards) -->
         <section class="animate-fade-in-up opacity-0 delay-200 mt-2">
-            <h2 class="text-[14px] font-medium text-md-onSurfaceVariant tracking-widest uppercase px-2 mb-4 flex items-center gap-3" data-en="Connect">
+            <div class="flex items-center gap-3 px-2 mb-4">
                 <span class="material-symbols-rounded text-md-primary text-[20px]">link</span>
-                Bağlantılar
-            </h2>
+                <h2 class="text-[14px] font-medium text-md-onSurfaceVariant tracking-widest uppercase" data-en="Connect">
+                    Bağlantılar
+                </h2>
+            </div>
             
             <div class="flex flex-col gap-3">
                 
                 <!-- MD3 Outlined Card (Primary Link) -->
-                <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play Geliştirici Profilim" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
+                <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play Geliştirici Profilim" data-en-aria-label="Google Play Developer Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
                     <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mr-4 shrink-0">
                         <span class="material-symbols-rounded">shop</span>
                     </div>
@@ -201,7 +244,7 @@
                 </a>
 
                 <!-- MD3 Outlined Card -->
-                <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profilim" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
+                <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profilim" data-en-aria-label="Instagram Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
                     <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center mr-4 shrink-0">
                         <span class="material-symbols-rounded">photo_camera</span>
                     </div>
@@ -214,14 +257,14 @@
 
                 <!-- 2 Column Grid for smaller links -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop Koleksiyonum" class="md-ripple-hover flex items-center p-4 rounded-[20px] bg-md-surfaceContainer hover:bg-md-surfaceVariant/80 transition-colors text-md-onSurface">
+                    <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop Koleksiyonum" data-en-aria-label="Raindrop Collection" class="md-ripple-hover flex items-center p-4 rounded-[20px] bg-md-surfaceContainer hover:bg-md-surfaceVariant/80 transition-colors text-md-onSurface">
                         <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center mr-3 shrink-0">
                             <span class="material-symbols-rounded text-[20px]">water_drop</span>
                         </div>
                         <span class="font-medium text-[15px] flex-1">Raindrop</span>
                     </a>
 
-                    <a href="https://letterboxd.com/lyriswen/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd Profilim" class="md-ripple-hover flex items-center p-4 rounded-[20px] bg-md-surfaceContainer hover:bg-md-surfaceVariant/80 transition-colors text-md-onSurface">
+                    <a href="https://letterboxd.com/lyriswen/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd Profilim" data-en-aria-label="Letterboxd Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] bg-md-surfaceContainer hover:bg-md-surfaceVariant/80 transition-colors text-md-onSurface">
                         <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center mr-3 shrink-0">
                             <span class="material-symbols-rounded text-[20px]">movie</span>
                         </div>
@@ -243,21 +286,29 @@
 
     <!-- MD3 Extended FAB (Floating Action Button) for Primary Action -->
     <div class="fixed bottom-6 right-6 z-50 animate-fade-in-up delay-300 opacity-0">
-        <a href="mailto:erdogandemirtas@outlook.com" aria-label="Bana e-posta gönderin" class="md-ripple-hover flex items-center gap-2 bg-md-primaryContainer text-md-onPrimaryContainer px-5 py-4 rounded-[16px] shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-1">
+        <a href="mailto:erdogandemirtas@outlook.com" aria-label="Bana e-posta gönderin" data-en-aria-label="Send me an email" class="md-ripple-hover flex items-center gap-2 bg-md-primaryContainer text-md-onPrimaryContainer px-5 py-4 rounded-[16px] shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-1">
             <span class="material-symbols-rounded">mail</span>
             <span class="font-medium pr-1" data-en="Email Me">E-Posta Gönder</span>
         </a>
     </div>
 
-    <!-- Dil Çeviri Scripti -->
+    <!-- Gelişmiş Dil Çeviri Scripti -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const userLang = navigator.language || navigator.userLanguage;
             if (!userLang.toLowerCase().startsWith('tr')) {
                 document.documentElement.lang = 'en';
-                const translatableElements = document.querySelectorAll('[data-en]');
-                translatableElements.forEach(el => {
+                document.querySelectorAll('[data-en]').forEach(el => {
                     el.innerHTML = el.getAttribute('data-en');
+                });
+                document.querySelectorAll('[data-en-aria-label]').forEach(el => {
+                    el.setAttribute('aria-label', el.getAttribute('data-en-aria-label'));
+                });
+                document.querySelectorAll('[data-en-alt]').forEach(el => {
+                    el.setAttribute('alt', el.getAttribute('data-en-alt'));
+                });
+                document.querySelectorAll('[data-en-title]').forEach(el => {
+                    el.setAttribute('title', el.getAttribute('data-en-title'));
                 });
             }
         });

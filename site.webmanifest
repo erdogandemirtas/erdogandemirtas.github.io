@@ -1,0 +1,17 @@
+{
+  "name": "Erdoğan Demirtaş",
+  "short_name": "Erdoğan D.",
+  "description": "Erdoğan Demirtaş'ın kişisel web sitesi.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBFF",
+  "theme_color": "#FDFBFF"
+}
