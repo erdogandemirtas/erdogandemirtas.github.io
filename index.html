@@ -22,7 +22,8 @@
 
     <!-- Favicon & PWA Manifest -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
@@ -53,6 +54,7 @@
       "url": "https://erdogandemirtas.github.io/",
       "image": "https://erdogandemirtas.github.io/assets/bird-1200.jpg",
       "sameAs": [
+        "https://github.com/erdogandemirtas",
         "https://play.google.com/store/apps/dev?id=7093328901397114353",
         "https://www.instagram.com/_erdogandemirtas",
         "https://letterboxd.com/mithrulf/",
@@ -109,20 +111,13 @@
         }
     </script>
 
-    <!-- Google Analytics (GA4) - Gerçek ID eklendiğinde otomatik aktifleşir -->
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDMW6VQ6DV"></script>
     <script>
-        const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Gerçek GA4 Ölçüm Kimliğinizi buraya giriniz
-        if (GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
-            const gaScript = document.createElement('script');
-            gaScript.async = true;
-            gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-            document.head.appendChild(gaScript);
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', GA_MEASUREMENT_ID);
-        }
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YDMW6VQ6DV');
     </script>
 
     <style>
@@ -243,6 +238,18 @@
                     <span class="material-symbols-rounded text-md-onSurfaceVariant">open_in_new</span>
                 </a>
 
+                <!-- MD3 Outlined Card (GitHub) -->
+                <a href="https://github.com/erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profilim" data-en-aria-label="GitHub Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
+                    <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center mr-4 shrink-0">
+                        <span class="material-symbols-rounded">code</span>
+                    </div>
+                    <div class="flex-1">
+                        <span class="block font-medium text-[16px]">GitHub</span>
+                        <span class="block text-[14px] text-md-onSurfaceVariant mt-0.5" data-en="Open Source & Projects">Açık Kaynak Kodlar & Projeler</span>
+                    </div>
+                    <span class="material-symbols-rounded text-md-onSurfaceVariant">open_in_new</span>
+                </a>
+
                 <!-- MD3 Outlined Card -->
                 <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profilim" data-en-aria-label="Instagram Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
                     <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center mr-4 shrink-0">
@@ -261,14 +268,20 @@
                         <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center mr-3 shrink-0">
                             <span class="material-symbols-rounded text-[20px]">water_drop</span>
                         </div>
-                        <span class="font-medium text-[15px] flex-1">Raindrop</span>
+                        <div class="flex-1 min-w-0">
+                            <span class="block font-medium text-[15px] truncate">Raindrop</span>
+                            <span class="block text-[12px] text-md-onSurfaceVariant truncate" data-en="Bookmarks">Yer İmleri</span>
+                        </div>
                     </a>
 
                     <a href="https://letterboxd.com/mithrulf/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd Profilim" data-en-aria-label="Letterboxd Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] bg-md-surfaceContainer hover:bg-md-surfaceVariant/80 transition-colors text-md-onSurface">
                         <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center mr-3 shrink-0">
                             <span class="material-symbols-rounded text-[20px]">movie</span>
                         </div>
-                        <span class="font-medium text-[15px] flex-1">Letterboxd</span>
+                        <div class="flex-1 min-w-0">
+                            <span class="block font-medium text-[15px] truncate">Letterboxd</span>
+                            <span class="block text-[12px] text-md-onSurfaceVariant truncate" data-en="Film Diary">Film Günlüğü</span>
+                        </div>
                     </a>
                 </div>
 
@@ -298,6 +311,13 @@
             const userLang = navigator.language || navigator.userLanguage;
             if (!userLang.toLowerCase().startsWith('tr')) {
                 document.documentElement.lang = 'en';
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) metaDesc.setAttribute('content', "Erdoğan Demirtaş's personal website.");
+                const ogDesc = document.querySelector('meta[property="og:description"]');
+                if (ogDesc) ogDesc.setAttribute('content', "Erdoğan Demirtaş's personal website.");
+                const twDesc = document.querySelector('meta[name="twitter:description"]');
+                if (twDesc) twDesc.setAttribute('content', "Erdoğan Demirtaş's personal website.");
+
                 document.querySelectorAll('[data-en]').forEach(el => {
                     el.innerHTML = el.getAttribute('data-en');
                 });
