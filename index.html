@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- SEO ve Meta Açıklamaları -->
     <title>Erdoğan Demirtaş</title>
@@ -17,14 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- LCP (En Büyük İçerik) Ön Yüklemesi (Responsive WebP) -->
-    <link rel="preload" as="image" href="assets/bird-1200.webp" imagesrcset="assets/bird-480.webp 480w, assets/bird-800.webp 800w, assets/bird-1200.webp 1200w" imagesizes="(max-width: 640px) 100vw, 680px" type="image/webp" fetchpriority="high">
-
-    <!-- Favicon & PWA Manifest -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:type" content="website">
@@ -52,7 +45,6 @@
       "@type": "Person",
       "name": "Erdoğan Demirtaş",
       "url": "https://erdogandemirtas.github.io/",
-      "image": "https://erdogandemirtas.github.io/assets/bird-1200.jpg",
       "sameAs": [
         "https://github.com/erdogandemirtas",
         "https://play.google.com/store/apps/dev?id=7093328901397114353",
@@ -65,9 +57,8 @@
     }
     </script>
 
-    <!-- Google Fonts & Material Symbols (MD3 Standartları) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -79,31 +70,14 @@
                         sans: ['Roboto', 'sans-serif'],
                     },
                     colors: {
-                        // Material Design 3 Base Palette (Blue / Tonal)
                         md: {
                             surface: '#FDFBFF',
                             onSurface: '#1A1C1E',
-                            surfaceVariant: '#DFE2E6',
                             onSurfaceVariant: '#43474E',
                             surfaceContainerLow: '#F3F3FA',
-                            surfaceContainer: '#EDEDF4',
-                            primary: '#0061A4',
-                            onPrimary: '#FFFFFF',
                             primaryContainer: '#D1E4FF',
                             onPrimaryContainer: '#001D36',
-                            secondaryContainer: '#D7E3F7',
-                            onSecondaryContainer: '#101C2B',
-                            outline: '#73777F',
                             outlineVariant: '#C3C7CF'
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.2, 0, 0, 1) forwards',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -128,207 +102,105 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-
-        /* MD3 Ripple Effect Simülasyonu */
-        .md-ripple-hover {
-            position: relative;
-            overflow: hidden;
-        }
-        .md-ripple-hover::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-color: currentColor;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        .md-ripple-hover:hover::after {
-            opacity: 0.08;
-        }
-        .md-ripple-hover:active::after {
-            opacity: 0.12;
-        }
-
-        a:focus-visible, button:focus-visible {
-            outline: 3px solid #0061A4; 
+        a:focus-visible {
+            outline: 2px solid #0061A4;
             outline-offset: 2px;
-            border-radius: inherit;
-        }
-
-        /* Material Icon Ayarları */
-        .material-symbols-rounded {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center pb-24 pt-8 px-4 sm:px-8 selection:bg-md-primaryContainer selection:text-md-onPrimaryContainer relative">
+<body class="min-h-screen flex flex-col items-center py-16 sm:py-24 px-5 sm:px-8 selection:bg-md-primaryContainer selection:text-md-onPrimaryContainer">
 
-    <main class="w-full max-w-[680px] flex flex-col gap-6 z-10">
+    <main class="w-full max-w-[600px] flex flex-col gap-10">
 
-        <!-- MD3 Hero Bölümü (Resim + Başlık) -->
-        <header class="animate-fade-in-up opacity-0 flex flex-col gap-4 mb-2">
-            <!-- MD3 Image Card -->
-            <div class="w-full h-56 sm:h-80 rounded-[32px] overflow-hidden relative bg-md-surfaceVariant group">
-                <picture>
-                    <source type="image/webp" srcset="assets/bird-480.webp 480w, assets/bird-800.webp 800w, assets/bird-1200.webp 1200w" sizes="(max-width: 640px) 100vw, 680px">
-                    <img src="assets/bird-1200.jpg"
-                         alt="Mavi Alakarga"
-                         data-en-alt="Blue Jay"
-                         title="Fotoğraf: Mdf, CC BY-SA 3.0, Wikimedia Commons"
-                         data-en-title="Photo: Mdf, CC BY-SA 3.0, Wikimedia Commons"
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                         width="1200" height="800"
-                         loading="eager" fetchpriority="high" decoding="async"
-                         onerror="this.onerror=null;this.src='https://placehold.co/800x400?text=Görsel+Bulunamadı&font=roboto';">
-                </picture>
-                
-                <!-- Tooltip Overlay -->
-                <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <span class="bg-md-onSurface/80 text-md-surface text-xs px-3 py-1.5 rounded-lg font-medium tracking-wide" data-en="Photo: Mdf, CC BY-SA 3.0">
-                        Fotoğraf: Mdf, CC BY-SA 3.0
-                    </span>
-                </div>
-            </div>
-            
-            <div class="px-2 mt-2">
-                <h1 class="text-[32px] sm:text-[40px] leading-tight font-normal text-md-onSurface tracking-normal">
-                    Erdoğan Demirtaş
-                </h1>
-            </div>
+        <!-- Başlık -->
+        <header>
+            <h1 class="text-[32px] sm:text-[40px] leading-tight font-medium text-md-onSurface tracking-tight">
+                Erdoğan Demirtaş
+            </h1>
         </header>
 
-        <!-- MD3 Hakkımda Bölümü (Filled Card) -->
-        <section class="animate-fade-in-up opacity-0 delay-100">
-            <div class="bg-md-surfaceContainerLow rounded-[24px] p-6 sm:p-8">
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="material-symbols-rounded text-md-primary">person</span>
-                    <h2 class="text-[14px] font-medium text-md-onSurfaceVariant tracking-widest uppercase" data-en="About">
-                        Hakkımda
-                    </h2>
-                </div>
-                <p class="text-[16px] sm:text-[18px] leading-relaxed text-md-onSurface" data-en="I am preparing for the AGS to become a teacher. I also develop Android applications. I love learning, exploring, and sharing the knowledge I've gained.">
-                    Öğretmen olmak için AGS'ye hazırlanıyorum. Aynı zamanda Android uygulamaları geliştiriyorum. Teknolojiyi hayata entegre etmenin yollarını arıyor; öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
-                </p>
-            </div>
+        <!-- Hakkımda Bölümü -->
+        <section class="flex flex-col gap-3">
+            <h2 class="text-[13px] font-medium text-md-onSurfaceVariant tracking-widest uppercase" data-en="About">
+                Hakkımda
+            </h2>
+            <p class="text-[16px] sm:text-[18px] leading-relaxed text-md-onSurface" data-en="I am preparing for the AGS to become a teacher. I also develop Android applications. I love learning, exploring, and sharing the knowledge I've gained.">
+                Öğretmen olmak için AGS'ye hazırlanıyorum. Aynı zamanda Android uygulamaları geliştiriyorum. Öğrenmeyi, keşfetmeyi ve edindiğim bilgileri paylaşmayı seviyorum.
+            </p>
         </section>
 
-        <!-- MD3 Bağlantılar Bölümü (List Elements / Interactive Cards) -->
-        <section class="animate-fade-in-up opacity-0 delay-200 mt-2">
-            <div class="flex items-center gap-3 px-2 mb-4">
-                <span class="material-symbols-rounded text-md-primary text-[20px]">link</span>
-                <h2 class="text-[14px] font-medium text-md-onSurfaceVariant tracking-widest uppercase" data-en="Connect">
-                    Bağlantılar
-                </h2>
-            </div>
-            
-            <div class="flex flex-col gap-3">
-                
-                <!-- MD3 Outlined Card (Primary Link) -->
-                <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play Geliştirici Profilim" data-en-aria-label="Google Play Developer Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
-                    <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mr-4 shrink-0">
-                        <span class="material-symbols-rounded">shop</span>
-                    </div>
-                    <div class="flex-1">
-                        <span class="block font-medium text-[16px]" data-en="Google Play Developer">Google Play Geliştirici</span>
-                        <span class="block text-[14px] text-md-onSurfaceVariant mt-0.5" data-en="Android Applications">Android Uygulamaları</span>
-                    </div>
-                    <span class="material-symbols-rounded text-md-onSurfaceVariant">open_in_new</span>
+        <!-- Bağlantılar Bölümü -->
+        <section class="flex flex-col gap-4">
+            <h2 class="text-[13px] font-medium text-md-onSurfaceVariant tracking-widest uppercase" data-en="Connect">
+                Bağlantılar
+            </h2>
+
+            <div class="flex flex-col gap-2.5">
+                <a href="https://play.google.com/store/apps/dev?id=7093328901397114353" target="_blank" rel="noopener noreferrer" aria-label="Google Play Geliştirici Profilim" data-en-aria-label="Google Play Developer Profile" class="group flex items-center justify-between px-4 py-3.5 rounded-xl border border-md-outlineVariant/80 bg-md-surface hover:bg-md-surfaceContainerLow transition-colors">
+                    <span class="font-medium text-[15px] text-md-onSurface" data-en="Google Play Developer">Google Play Geliştirici</span>
+                    <svg class="w-4 h-4 text-md-onSurfaceVariant group-hover:text-md-onSurface group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17L17 7M7 7h10v10"/>
+                    </svg>
                 </a>
 
-                <!-- MD3 Outlined Card (GitHub) -->
-                <a href="https://github.com/erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profilim" data-en-aria-label="GitHub Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
-                    <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center mr-4 shrink-0">
-                        <span class="material-symbols-rounded">code</span>
-                    </div>
-                    <div class="flex-1">
-                        <span class="block font-medium text-[16px]">GitHub</span>
-                        <span class="block text-[14px] text-md-onSurfaceVariant mt-0.5" data-en="Open Source & Projects">Açık Kaynak Kodlar & Projeler</span>
-                    </div>
-                    <span class="material-symbols-rounded text-md-onSurfaceVariant">open_in_new</span>
+                <a href="https://github.com/erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profilim" data-en-aria-label="GitHub Profile" class="group flex items-center justify-between px-4 py-3.5 rounded-xl border border-md-outlineVariant/80 bg-md-surface hover:bg-md-surfaceContainerLow transition-colors">
+                    <span class="font-medium text-[15px] text-md-onSurface">GitHub</span>
+                    <svg class="w-4 h-4 text-md-onSurfaceVariant group-hover:text-md-onSurface group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17L17 7M7 7h10v10"/>
+                    </svg>
                 </a>
 
-                <!-- MD3 Outlined Card -->
-                <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profilim" data-en-aria-label="Instagram Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] border border-md-outlineVariant bg-md-surface text-md-onSurface hover:bg-md-surfaceVariant/30 transition-colors">
-                    <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center mr-4 shrink-0">
-                        <span class="material-symbols-rounded">photo_camera</span>
-                    </div>
-                    <div class="flex-1">
-                        <span class="block font-medium text-[16px]">Instagram</span>
-                        <span class="block text-[14px] text-md-onSurfaceVariant mt-0.5" data-en="Photos & Updates">Fotoğraf & Güncellemeler</span>
-                    </div>
-                    <span class="material-symbols-rounded text-md-onSurfaceVariant">open_in_new</span>
+                <a href="https://www.instagram.com/_erdogandemirtas" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profilim" data-en-aria-label="Instagram Profile" class="group flex items-center justify-between px-4 py-3.5 rounded-xl border border-md-outlineVariant/80 bg-md-surface hover:bg-md-surfaceContainerLow transition-colors">
+                    <span class="font-medium text-[15px] text-md-onSurface">Instagram</span>
+                    <svg class="w-4 h-4 text-md-onSurfaceVariant group-hover:text-md-onSurface group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17L17 7M7 7h10v10"/>
+                    </svg>
                 </a>
 
-                <!-- 2 Column Grid for smaller links -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop Koleksiyonum" data-en-aria-label="Raindrop Collection" class="md-ripple-hover flex items-center p-4 rounded-[20px] bg-md-surfaceContainer hover:bg-md-surfaceVariant/80 transition-colors text-md-onSurface">
-                        <div class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center mr-3 shrink-0">
-                            <span class="material-symbols-rounded text-[20px]">water_drop</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <span class="block font-medium text-[15px] truncate">Raindrop</span>
-                            <span class="block text-[12px] text-md-onSurfaceVariant truncate" data-en="Bookmarks">Yer İmleri</span>
-                        </div>
-                    </a>
+                <a href="https://erdogan.raindrop.page/" target="_blank" rel="noopener noreferrer" aria-label="Raindrop Koleksiyonum" data-en-aria-label="Raindrop Collection" class="group flex items-center justify-between px-4 py-3.5 rounded-xl border border-md-outlineVariant/80 bg-md-surface hover:bg-md-surfaceContainerLow transition-colors">
+                    <span class="font-medium text-[15px] text-md-onSurface">Raindrop</span>
+                    <svg class="w-4 h-4 text-md-onSurfaceVariant group-hover:text-md-onSurface group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17L17 7M7 7h10v10"/>
+                    </svg>
+                </a>
 
-                    <a href="https://letterboxd.com/mithrulf/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd Profilim" data-en-aria-label="Letterboxd Profile" class="md-ripple-hover flex items-center p-4 rounded-[20px] bg-md-surfaceContainer hover:bg-md-surfaceVariant/80 transition-colors text-md-onSurface">
-                        <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center mr-3 shrink-0">
-                            <span class="material-symbols-rounded text-[20px]">movie</span>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <span class="block font-medium text-[15px] truncate">Letterboxd</span>
-                            <span class="block text-[12px] text-md-onSurfaceVariant truncate" data-en="Film Diary">Film Günlüğü</span>
-                        </div>
-                    </a>
-                </div>
+                <a href="https://letterboxd.com/mithrulf/" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd Profilim" data-en-aria-label="Letterboxd Profile" class="group flex items-center justify-between px-4 py-3.5 rounded-xl border border-md-outlineVariant/80 bg-md-surface hover:bg-md-surfaceContainerLow transition-colors">
+                    <span class="font-medium text-[15px] text-md-onSurface">Letterboxd</span>
+                    <svg class="w-4 h-4 text-md-onSurfaceVariant group-hover:text-md-onSurface group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17L17 7M7 7h10v10"/>
+                    </svg>
+                </a>
 
+                <a href="mailto:erdogandemirtas@outlook.com" aria-label="Bana e-posta gönderin" data-en-aria-label="Send me an email" class="group flex items-center justify-between px-4 py-3.5 rounded-xl border border-md-outlineVariant/80 bg-md-surface hover:bg-md-surfaceContainerLow transition-colors">
+                    <span class="font-medium text-[15px] text-md-onSurface" data-en="Email">E-Posta</span>
+                    <svg class="w-4 h-4 text-md-onSurfaceVariant group-hover:text-md-onSurface group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M7 17L17 7M7 7h10v10"/>
+                    </svg>
+                </a>
             </div>
         </section>
 
         <!-- Alt Bilgi (Footer) -->
-        <footer class="animate-fade-in-up opacity-0 delay-300 pt-8 mt-4 border-t border-md-outlineVariant/50 flex flex-col items-center gap-2 px-4 text-center">
-            <p class="text-[13px] text-md-onSurfaceVariant" data-en="&copy; 2026 Erdoğan Demirtaş.">
+        <footer class="pt-8 border-t border-md-outlineVariant/50">
+            <p class="text-[13px] text-md-onSurfaceVariant">
                 &copy; 2026 Erdoğan Demirtaş.
             </p>
         </footer>
 
     </main>
 
-    <!-- MD3 Extended FAB (Floating Action Button) for Primary Action -->
-    <div class="fixed bottom-6 right-6 z-50 animate-fade-in-up delay-300 opacity-0">
-        <a href="mailto:erdogandemirtas@outlook.com" aria-label="Bana e-posta gönderin" data-en-aria-label="Send me an email" class="md-ripple-hover flex items-center gap-2 bg-md-primaryContainer text-md-onPrimaryContainer px-5 py-4 rounded-[16px] shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_16px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-1">
-            <span class="material-symbols-rounded">mail</span>
-            <span class="font-medium pr-1" data-en="Email Me">E-Posta Gönder</span>
-        </a>
-    </div>
-
-    <!-- Gelişmiş Dil Çeviri Scripti -->
+    <!-- Dil Çeviri Scripti -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const userLang = navigator.language || navigator.userLanguage;
             if (!userLang.toLowerCase().startsWith('tr')) {
                 document.documentElement.lang = 'en';
-                const metaDesc = document.querySelector('meta[name="description"]');
-                if (metaDesc) metaDesc.setAttribute('content', "Erdoğan Demirtaş's personal website.");
-                const ogDesc = document.querySelector('meta[property="og:description"]');
-                if (ogDesc) ogDesc.setAttribute('content', "Erdoğan Demirtaş's personal website.");
-                const twDesc = document.querySelector('meta[name="twitter:description"]');
-                if (twDesc) twDesc.setAttribute('content', "Erdoğan Demirtaş's personal website.");
 
                 document.querySelectorAll('[data-en]').forEach(el => {
-                    el.innerHTML = el.getAttribute('data-en');
+                    el.textContent = el.getAttribute('data-en');
                 });
                 document.querySelectorAll('[data-en-aria-label]').forEach(el => {
                     el.setAttribute('aria-label', el.getAttribute('data-en-aria-label'));
-                });
-                document.querySelectorAll('[data-en-alt]').forEach(el => {
-                    el.setAttribute('alt', el.getAttribute('data-en-alt'));
-                });
-                document.querySelectorAll('[data-en-title]').forEach(el => {
-                    el.setAttribute('title', el.getAttribute('data-en-title'));
                 });
             }
         });
